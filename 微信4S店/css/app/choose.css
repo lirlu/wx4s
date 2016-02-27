@@ -1,0 +1,51 @@
+.choose{width: 100%;height: 50px;background: #FFFFFF;border-top: 1px solid #EFEFEF;line-height: 50px;}
+.choose1{width: 50%;float: left;position: relative;padding-left: 15%;}
+.active{color: #03A9F4;}
+.deie{position: absolute;width: 1px;height: 100%;background: #EFEFEF;right: 0;top: 0;}
+.shop{width: 100%;height: 80px;background: #FFFFFF;margin: 5px 0;padding: 0 0 0 15px;position: relative;}
+.shop_l{width: 90px;float: left;}
+.shop_l img{width: 80px;margin-top: 10px;}
+.shop_r{width: 70%;float: left;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding-top: 8px;}
+.shop_p{overflow:hidden;white-space:nowrap;text-overflow:ellipsis;padding-right: 12px;}
+.reserve{border: 1px solid #03A9F4;border-radius: 5px;background: #03A9F4;color: #FFFFFF;float: right;padding: 3px 10px;margin-top: -2px;}
+.juli{padding-left: 20%;}
+.time_l{float: left;}
+.col.time_l{width: 52%;text-align: center;}
+.time_r{float: right;}
+i{width: 10px;height: 10px;display: inline-block;border-right: 2px solid #ccc;border-bottom: 2px solid #ccc;cursor: pointer;-webkit-transform: rotate(-45deg);position: absolute;right: 10px;top: 35px;}
+/*********************************************************/
+.shopt{width: 100%;height: 80px;background: #FFFFFF;padding: 0 0 0 15px;position: relative;border-bottom: 1px solid #EFEFEF;border-top: 1px solid #EFEFEF;}
+.shop_lt{width: 90px;float: right;}
+.shop_lt img{width: 80px;margin-top: 12px;}
+.address{width: 100%;height: 44px;background: #FFFFFF;line-height: 44px;padding-left: 15px;margin-bottom: 5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.shop_rt{width: 70%;float: left;padding-top: 8px;}
+.julif{padding-left: 10px;}
+.address img{width: 22px;float: left;margin-top: 12px;}
+.aode{padding-left: 15px;}
+li.type{padding: 8px 15px;}
+li.type:after{height: 0;}
+.map{position: fixed;bottom: 0;left: 0;width: 100%;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

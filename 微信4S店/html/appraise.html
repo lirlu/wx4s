@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的评价</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/voucher.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">我的评价</h1>
+		</header>
+		<div class="content">
+			<div class="appraise">
+				<div class="appraise_l active">已评价</div>
+				<div class="appraise_l">待评价</div>
+			</div>
+			<section class="dai" style="border-top: 1px solid #EFEFEF;">
+				<ul>
+					<li class="appraise_li">
+						<span class="blocko col3">中升之星汽车服务有限公司</span> 服务很好，师傅的也很好，给个好评！
+						<p class="time_p">已评价2015-12-24<span class="time">17:27</span></p>
+					</li>
+					<li class="appraise_li">
+						<span class="blocko col3">中升之星汽车服务有限公司</span> 服务很好，师傅的也很好，给个好评！
+						<p class="time_p">已评价2015-12-24<span class="time">17:27</span></p>
+					</li>
+				</ul>
+			</section>
+			<!--待评价-->
+			<section style="display: none;border-top: 1px solid #EFEFEF;" class="dai">
+				<ul>
+					<li>
+						更换机油滤清器
+						<p class="appraise_p">未评价</p>
+						<button class="appraise_btn">评价</button>
+					</li>
+					<li>
+						更换机油滤清器
+						<p class="appraise_p">未评价</p>
+						<button class="appraise_btn">评价</button>
+					</li>
+					<li>
+						更换机油滤清器
+						<p class="appraise_p">未评价</p>
+						<button class="appraise_btn">评价</button>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/public.js"></script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<script>
+		$(function() {
+			$('.appraise .appraise_l').click(function() {
+				if ($(this).hasClass('active')) {
+					$(this).removeClass('active');
+					$(this).eq(0).addClass('active');
+					$(".dai").eq($(this).index()).show();
+				} else {
+					$(this).addClass('active');
+					$(this).siblings().removeClass('active');
+					$(".dai").hide().eq($(this).index()).show();
+				}
+			});
+		});
+	</script>
+
+</html>

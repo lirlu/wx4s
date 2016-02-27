@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/succeed.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<h1 class="title">我</h1>
+		</header>
+		<div class="content">
+			<div class="user_banner">
+				<span class="che"><img src="../img/baoma.png"/></span>
+				<span>2015款</span>
+				<span>B</span>
+				<span>200</span>
+				<span>豪华型</span>
+			</div>
+			<ul class="user">
+				<li address="order.html">我的订单<i class="cur"></i></li>
+				<li address="order.html">待支付<i class="cur"></i></li>
+				<li address="order.html">服务中<i class="cur"></i></li>
+				<li address="appraise.html">待评价<i class="cur"></i></li>
+				<li address="voucher.html">我的抵用券<i class="cur"></i></li>
+			</ul>
+			<ul class="user">
+				<li address="recommend.html">邀请有奖<i class="cur"></i></li>
+				<li>常见问题<i class="cur"></i></li>
+				<li address="set.html">设置<i class="cur"></i></li>
+				<li address="about.as.html">关于我们<i class="cur"></i></li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+		<script>
+			mui.plusReady(function() {
+				$(".user li").on("tap",function(){
+					var address=$(this).attr("address");
+					if(address){
+						publicVar.openwinOne(address,address,{},{});
+					}else{
+						plus.nativeUI.toast("正在努力开发中...");
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

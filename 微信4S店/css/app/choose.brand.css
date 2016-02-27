@@ -1,0 +1,82 @@
+img{float: left;width: 20px;}
+/************************************************************/
+.deis{background: #FFFFFF;margin-top: 5px;border-bottom: 1px solid #E5E5E5;}
+li.now_city{padding: 20px 15px;}
+.City{width: 30%;height: 35px;border: 1px solid #F7F7F8;border-radius: 5px;background: #F7F7F8;float: left;text-align: center;line-height: 35px;}
+.City:nth-child(2n){margin: 0 5%;}
+.c_li{padding: 11px 15px 0 15px;}
+.c_li:after{height: 0;}
+.c_li:last-child{padding: 11px 15px;}
+.diming{width: 25%;float: left;text-align: center;}
+.car{border-top: 1px solid #E5E5E5;height: 60px;line-height: 35px;}
+.car img{width: 30px;float: left;margin-right: 10px;margin-top: 2px;}
+.liebiao li:after{left: 15px;}
+.brand{width: 25%;height: 90px;background: #FFFFFF;float: left;border-bottom: 1px solid #EFEFEF;border-right: 1px solid #EFEFEF;position: relative;}
+.brand:nth-child(4n){border-right: 0;}
+.img img{width: 53px;}
+.img{width: 100%;height: 55px;margin-left: 20%;margin-top: 6px;}
+.car_brand{width: 100%;height: 35px;text-align: center;position: absolute;bottom: -8px;}
+.list li img{width: 26px;float: left;margin-top: -3px;margin-right: 5px;}
+.city_li{line-height: 25px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

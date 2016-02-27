@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>支付方式</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/voucher.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">支付方式</h1>
+		</header>
+		<div class="content">
+			<ul class="liebiao">
+				<li>
+					<span class="blocko">保养订单</span>
+					<span class="blocko col">￥544</span>
+				</li>
+				<li id="paly">
+					<div class="p_l">
+						<img src="../img/weixinzhifu.png" />
+					</div>
+					<div class="p_r">
+						微信支付
+						<p>推荐安装微信5.0以上版本的使用</p>
+					</div>
+					<i class="cur cur1"></i>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+		<script>
+			$(function() {
+				$("#paly").on("tap", function() {
+					publicVar.openwinOne("pay.succeed.html", "pay.succeed.html", {}, {});
+				});
+			});
+		</script>
+	</body>
+
+</html>

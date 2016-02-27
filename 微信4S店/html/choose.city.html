@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>选择城市</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/choose.brand.css" />
+	</head>
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">选择城市</h1>
+		</header>
+		<!--内容-->
+		<div class="content">
+			<div class="arrange deis">
+				当前定位城市
+			</div>
+			<ul>
+				<li class="now_city col"><img src="../img/city.png" />成都</li>
+			</ul>
+			<div class="arrange deis">
+				全部城市
+			</div>
+			<ul>
+				<li class="c_li">
+					<div class="City">北京</div>
+					<div class="City">上海</div>
+					<div class="City">广州</div>
+				</li>
+				<li class="c_li">
+					<div class="City">深圳</div>
+					<div class="City">珠海</div>
+					<div class="City">厦门</div>
+				</li>
+				<li class="c_li">
+					<div class="City">北京</div>
+					<div class="City">上海</div>
+					<div class="City">广州</div>
+				</li>
+			</ul>
+			<div class="arrange deis">
+				A
+			</div>
+			<ul>
+				<li class="city_li">
+					<div class="diming">安康</div>
+					<div class="diming">安庆</div>
+					<div class="diming">鞍山</div>
+					<div class="diming">安顺</div>
+					<div class="diming">安阳</div>
+				</li>
+			</ul>
+			<div class="arrange deis">
+				B
+			</div>
+			<ul>
+				<li class="city_li">
+					<div class="diming">安康</div>
+					<div class="diming">安庆</div>
+					<div class="diming">鞍山</div>
+					<div class="diming">安顺</div>
+					<div class="diming">安阳</div>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+		<script>
+			mui.plusReady(function(){
+				$(".content").on("tap",function(){
+					plus.webview.currentWebview().close();
+				});
+			});
+		</script>
+	</body>
+</html>
+

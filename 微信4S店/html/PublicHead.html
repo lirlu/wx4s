@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>1元云车</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../css/mui.min.css" />
+		<link rel="stylesheet" type="text/css" href="../css/common.css" />
+	</head>
+
+	<body>
+		<header class="header mui-bar mui-bar-nav bar" style="display: none;">
+		</header>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script>
+			mui.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				var backBut = '<a class="mui-action-back"><img src="../img/left-jiantou.png" /></a>';
+				var setVar = '<a class="right"><img src="../img/set.png" /></a>';
+				console.log(self.id)
+				var urlAddress = self.Address;
+				if (self.wType) {
+					$(".bar").append(backBut + '<h1 class="title">' + self.wName + "</h1>");
+				} else {
+					if (urlAddress == "home.html") {
+						$(".bar").html('<div class="logo_div"><img src="../img/logo.png" class="logo" /></div>').css("background-color", "#FF5E00");
+					} else {
+						$(".bar").append('<h1 class="title">' + self.wName + "</h1>");
+						(urlAddress == "user.html") ? $(".bar").append(setVar): "";
+					}
+				}
+				var extras = {};
+				//去除不使用的变量，将可用变量存到extras，传过去
+				for (value in self) {
+					if (variableName.indexOf(value) < 0) {
+						extras[value] = self[value];
+					}
+				}
+				extras.windowID = plus.webview.currentWebview().id;
+				var top="44px";
+				if(urlAddress == "home.index.html" || urlAddress == "online.store.html"|| urlAddress == "activity.html"|| urlAddress == "user.html"){
+					top=0;
+				}else{
+					$(".header").show();
+				}
+				mui.init({
+					subpages: [{
+						id: "son" + urlAddress,
+						url: urlAddress,
+						styles: {
+							top: top,
+							bottom: 0,
+							zindex:5
+						},
+						extras: extras
+					}]
+				});
+			})
+		</script>
+	</body>
+
+</html>

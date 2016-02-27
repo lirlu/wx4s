@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>保养方案</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/voucher.css" />
+		<style>
+			.block {
+				margin-top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mengban"></div>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">保养方案</h1>
+		</header>
+		<div class="content">
+			<div class="arrange deis">
+				<span><img src="../img/car.png" style="width: 21px;margin-right: 8px;float: left;margin-top: 9px;" /></span> 保养的车辆
+			</div>
+			<ul>
+				<li>
+					<div class="djei"><img src="../img/baoma-big.png" /></div>
+					<div class="djeio">
+						<span>2015款</span>
+						<span>B</span>
+						<span>200</span>
+						<span>豪华型</span>
+					</div>
+				</li>
+				<li>
+					根据您的行驶里程，当前您的爱好车况良好。如果您不放心，建议您做2两项保养
+				</li>
+				<li style="margin-top: 0;line-height: 25px;">
+					机油：原厂宝马专用5W-30<span style="padding-left: 10px;">SN级免费检测</span> 机油滤清器：技修工还为您准备了16项免费检测
+				</li>
+				<!--下拉框-->
+				<div class="select">
+					<div class="sel-div" style="z-index: 4;">
+						<span class="sel-span">
+							<span>5项状况良好</span>
+						<b></b>
+						</span>
+					</div>
+					<ul class="hide liebiao" style="display: none;z-index: 3;position: absolute;width: 100%;">
+						<li class="block">空调滤清器</li>
+						<li class="block">燃油滤清器</li>
+						<li class="block">空气滤清器</li>
+						<li class="block">火花塞</li>
+						<li class="block">刹车油</li>
+						<li class="block">防冻液</li>
+					</ul>
+				</div>
+				<li id="by">保养手册<i class="cur"></i></li>
+			</ul>
+			<div class="arrange">保养需支付<span class="col">￥724元</span></div>
+			<div class="bottom">
+				<button class="btn">去保养</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/public.js"></script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<script>
+		$(function() {
+			$(".select .sel-div").click(function() {
+				if ($(this).children().children('b').hasClass("arrow")) {
+					$(this).children().children('b').removeClass("arrow");
+					$(".hide").slideUp();
+					$('.mengban').css('display', 'none');
+				} else {
+					$(this).children().children('b').addClass("arrow");
+					$(".hide").slideDown();
+					$('.mengban').css('display', 'block');
+					$(".block").click(function() {
+						var abc = $(this).text();
+						var efg =  $(this).parent().siblings(".sel-div").children().children(".sel-span span").text(abc);
+						$(".hide").slideUp();
+						$('.mengban').css('display', 'none');
+						$(this).parent().siblings().children().children('b').removeClass('arrow');
+					});
+				}
+			});
+			$("#by").on("tap",function(){
+				publicVar.openwinOne("handbook.html", "handbook.html", {}, {});
+			});
+			$(".btn").on("tap",function(){
+				publicVar.openwinOne("choose.shop.html", "choose.shop.html", {}, {});
+			});
+		});
+	</script>
+
+</html>

@@ -1,0 +1,28 @@
+.pay{text-align: center;width: 100%;margin: 2rem auto;}
+.pay img{width: 45%;}
+.pay-succeed{text-align: center;padding: 0 15px;}
+.l_f{padding-left: 15px;float: left;line-height: 44px;}
+.r_f{float: left;}
+.user{margin-top: 8px;}
+.user li:after{left: 15px;}
+.user_banner{width: 100%;height: 120px;line-height: 120px;background-image: url(../../img/bg.png);background-repeat: no-repeat;background-size: 100% 100%;}
+.che img{float: left;width: 45px;margin-left: 15px;margin-top: 35px;margin-right: 10px;}
+.add{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.blocko{display: block;}
+.dehi{line-height: 25px;}
+.dehi1{margin-top: 10px;}
+.julit{padding-left: 8px;}
+.timeo{color: #808080;}
+li:first-child{margin-top: 0;}
+li{margin-top: 5px;}
+.fjei{color: #CCCCCC;line-height: 44px;}
+i{width: 10px;height: 10px;display: inline-block;border-right: 2px solid #ccc;border-bottom: 2px solid #ccc;cursor: pointer;-webkit-transform: rotate(-45deg);position: absolute;right: 15px;top: 16px;}
+.notise{font-size: 12px;color: #FD4C3C;padding-left: 15px;}
+.wei{width: 33.33333333333333%;float: left;text-align: center;}
+.wei1{width: 100%;padding: 11px 15px;}
+
+
+
+
+
+

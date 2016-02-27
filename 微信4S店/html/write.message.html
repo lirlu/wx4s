@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>填写爱车信息</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/voucher.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">填写爱车信息</h1>
+		</header>
+		<div class="content">
+			<div class="arrange deis">
+				<span><img src="../img/car.png" style="width: 21px;margin-right: 8px;float: left;margin-top: 9px;" /></span> 保养的车辆
+			</div>
+			<ul>
+				<li>
+					<div class="djei"><img src="../img/baoma-big.png" /></div>
+					<div class="djeio">
+						<span>2015款</span>
+						<span>B</span>
+						<span>200</span>
+						<span>豪华型</span>
+					</div>
+				</li>
+				<li>
+					<span class="left_l"><img src="../img/licheng.png" style="width: 19px;margin-right: 10px;"></span>
+					<span>行驶里程</span>
+					<span class="right_l"><input type="text" placeholder="请输入公里数" style="width: 100px;height: 19px;"/>公里</span>
+				</li>
+				<li>
+					<span class="left_l"><img src="../img/zhon.png" style="width: 19px;margin-right: 10px;"></span>
+					<span>购车时间</span>
+					<span class="right_l jdei">2015-03<i class="cur jei"></i></span>
+				</li>
+			</ul>
+			<div class="bottom">
+				<button class="btn">去看保养方案</button>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+		<script>
+			mui.plusReady(function() {
+				$(".btn").on("tap", function() {
+					publicVar.openwinOne("scheme.html", "scheme.html", {}, {});
+				});
+			});
+		</script>
+	</body>
+
+</html>

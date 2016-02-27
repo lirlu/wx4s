@@ -1,0 +1,39 @@
+ul{margin-top: 5px;}
+.left_f{width: 60px;float: left;}
+.left_f img{width: 50px;margin-top: -5px;}
+.right_r{width: 75%;float: left;}
+.all_div{position: relative;margin-top: -15px;}
+.jiluth{padding-right: 10px;}
+.icee{height: 30px;padding-left: 15px;padding-top: 10px;}
+.distances{position: absolute;width: 100%;height: 1px;background: #EFEFEF;left: 0;bottom: 0;}
+.time{text-align: center;}
+.blocko{display: block;}
+.feed{float: right;font-size: 14px;}
+.jiqi{line-height: 25px;}
+.jiluthe{padding-left: 10px;}
+.cuie{position: absolute;right: 15px;top: 32px;width: 10px;height: 10px;display: inline-block;border-right: 2px solid #ccc;border-bottom: 2px solid #ccc;cursor: pointer;-webkit-transform: rotate(-45deg);}
+.add_li{margin-top: 5px;}
+.xiangmu{width: 50%;float: left;margin-top: 20px;}
+.moren{float: right;color: #28D426;}
+.set_btn{float: right;border: 1px solid #03A9F4;border-radius: 5px;color: #03A9F4;padding: 0px 5px;font-size: 14px;}
+.list_ul{margin-top: 0;}
+.list_li{margin-top: 5px;}
+.erweima{width: 100%;text-align: center;border-top: 1px solid #EFEFEF;padding: 20px 0;}
+.erweima img{width: 120px;margin-bottom: 20px;}
+.ender{width: 100%;height: 30px;line-height: 30px;text-align: center;position: relative;}
+.let{position: absolute;width: 23%;height: 1px;left: 15px;top: 15px;background: #EFEFEF;}
+.rte{position: absolute;width: 23%;height: 1px;right: 15px;top: 15px;background: #EFEFEF;}
+.rule{display: block;padding-bottom: 10px;font-size: 14px;}
+
+
+
+
+
+
+
+
+
+
+
+
+

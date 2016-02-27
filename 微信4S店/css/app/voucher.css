@@ -1,0 +1,47 @@
+li{margin-top: 8px;}
+.l_bar{width: 25%;float: left;position: relative;}
+.l_bar img{width:60px;}
+.r_bar{width: 70%;float: left;}
+.mui-radio.mui-right{float: right;}
+.blocko{display: block;}
+.p_l{float: left;width: 13%;}
+.p_l img{width: 30px;}
+.p_r{float: left;width: 87%;}
+.cur1{top: 27px;}
+.appraise{width: 100%;height: 50px;background: #FFFFFF;border-top: 1px solid #EFEFEF;}
+.appraise_l{float: left;width: 50%;line-height: 50px;text-align: center;border-bottom: 2px solid #FFFFFF;position:relative;}
+.active{color: #03A9F4;border-bottom: 2px solid #03A9F4;}
+.appraise_btn{float: right;width: 50px;padding: 5px 0;border: 1px solid #03A9F4;border-radius: 5px;color: #03A9F4;background: #FFFFFF;font-size: 15px;}
+.appraise_p{margin-top: 5px;}
+li:first-child{margin-top: 0;}
+.time{padding-left: 8px;}
+.appraise_li{line-height: 25px;}
+.time_p{padding-top: 20px;font-size: 13px;}
+.price{position: absolute;top: 35px;font-size: 20px;color: #FFFFFF;width: 60px;text-align: center;}
+.deis{background: #FFFFFF;margin-top: 5px;border-bottom: 1px solid #E5E5E5;}
+.djei img{width: 50px;}
+.djei{width: 60px;float: left;}
+.djeio{float: left;width: 78%;padding-top: 15px;}
+.right_l{float: right;}
+.left_l{float: left;}
+.jdei{padding-right: 20px;}
+i.cur.jei{top: 16px;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

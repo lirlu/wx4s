@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>4S店信息</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/choose.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">4S店信息</h1>
+			<a class="right">
+				<img src="../img/phone.png" />
+			</a>
+		</header>
+		<div class="content">
+			<!--店-->
+			<div class="shopt">
+				<div class="shop_lt">
+					<img src="../img/gonsi.png" />
+				</div>
+				<div class="shop_rt">成都中升之星汽车销售服务有限公司</div>
+			</div>
+			<div class="address"><img src="../img/dibiao.png">15.05公里<span class="julif">成都市武侯区大道绕城外侧</span></div>
+			<!--列表-->
+			<ul>
+				<li>
+					<div class="time_l">09:00-11:00</div>
+					<div class="col time_l">￥644</div>
+					<div class="time_r">
+						<button class="reserve">预定</button>
+					</div>
+				</li>
+				<li>
+					<div class="time_l">09:00-11:00</div>
+					<div class="col time_l">￥644</div>
+					<div class="time_r">
+						<button class="reserve">预定</button>
+					</div>
+				</li>
+				<li>
+					<div class="time_l">09:00-11:00</div>
+					<div class="col time_l">￥644</div>
+					<div class="time_r">
+						<button class="reserve">预定</button>
+					</div>
+				</li>
+				<li>
+					<div class="time_l">09:00-11:00</div>
+					<div class="col time_l">￥644</div>
+					<div class="time_r">
+						<button class="reserve">预定</button>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+		<script>
+			$(function() {
+				$(".reserve").on("tap", function() {
+					publicVar.openwinOne("write.order.html", "write.order.html", {}, {});
+				});
+				$(".right").on("tap", function() {
+					publicVar.openwinOne("service.html", "service.html", {}, {});
+				});
+				$(".shopt").on("tap", function() {
+					publicVar.openwinOne("image.detail.html", "image.detail.html", {}, {});
+				});
+				$(".address").on("tap", function() {
+					publicVar.openwinOne("map.html", "map.html.html", {}, {});
+				});
+			});
+		</script>
+	</body>
+
+</html>

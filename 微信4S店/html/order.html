@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>我的订单</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/order.css" />
+	</head>
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">我的订单</h1>
+		</header>
+		<div class="content">
+			<div class="order">
+				<div class="ordero activeo">全部</div>
+				<div class="ordero">待支付</div>
+				<div class="ordero">已付款</div>
+				<div class="ordero">服务中</div>
+				<div class="ordero">待评价</div>
+			</div>
+			<!--没有订单的时候-->
+			<div class="nodata">暂无数据</div>
+			<!--全部-->
+			<section class="display">
+				<ul>
+					<li>
+						保养订单<span class="col1 right_order">待付款</span>
+					</li>
+					<li class="distant">
+						<span>成都众生之星汽车销售有限公司</span>
+						<p>V66T6（10000公里）</p>
+						<p>2015-12-15<span>9:00保养</span></p>
+						<span class="col">￥544</span>
+					</li>
+					<li class="distant">
+						<button class="order_btn1">立即付款</button>
+						<button class="order_btn2">取消订单</button>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						保养订单<span class="col1 right_order">服务中</span>
+					</li>
+					<li class="distant">
+						<span>成都众生之星汽车销售有限公司</span>
+						<p>V66T6（10000公里）</p>
+						<p>2015-12-15<span>9:00保养</span></p>
+						<span class="col">￥544</span>
+					</li>
+					<li class="distant">
+						<button class="order_btn1">立即确认</button>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						保养订单<span class="col1 right_order">已付款</span>
+					</li>
+					<li class="distant">
+						<span>成都众生之星汽车销售有限公司</span>
+						<p>V66T6（10000公里）</p>
+						<p>2015-12-15<span>9:00保养</span></p>
+						<span class="col">￥544</span>
+					</li>
+					<li class="distant">
+						<button class="order_btn2 delete">删除</button>
+						<button class="order_btn3">申请退款</button>
+					</li>
+				</ul>
+				<ul>
+					<li>
+						保养订单<span class="col1 right_order">待评价</span>
+					</li>
+					<li class="distant">
+						<span>成都众生之星汽车销售有限公司</span>
+						<p>V66T6（10000公里）</p>
+						<p>2015-12-15<span>9:00保养</span></p>
+						<span class="col">￥544</span>
+					</li>
+					<li class="distant">
+						<button class="order_btn1">立即付款</button>
+						<button class="order_btn2 delete">删除</button>
+					</li>
+				</ul>
+			</section>
+			<!--待支付-->
+			<section class="display" style="display: none;">
+				<ul>
+					<li>
+						保养订单<span class="col1 right_order">待付款</span>
+					</li>
+					<li class="distant">
+						<span>成都众生之星汽车销售有限公司</span>
+						<p>V66T6（10000公里）</p>
+						<p>2015-12-15<span>9:00保养</span></p>
+						<span class="col">￥544</span>
+					</li>
+					<li class="distant">
+						<button class="order_btn1">立即付款</button>
+						<button class="order_btn2">取消订单</button>
+					</li>
+				</ul>
+			</section>
+			<!--服务中-->
+			<section class="display" style="display: none;">
+				<ul>
+					<li>
+						保养订单<span class="col1 right_order">服务中</span>
+					</li>
+					<li class="distant">
+						<span>成都众生之星汽车销售有限公司</span>
+						<p>V66T6（10000公里）</p>
+						<p>2015-12-15<span>9:00保养</span></p>
+						<span class="col">￥544</span>
+					</li>
+					<li class="distant">
+						<button class="order_btn1">立即确认</button>
+					</li>
+				</ul>
+			</section>
+			<!--已付款-->
+			<section class="display" style="display: none;">
+				<ul>
+					<li>
+						保养订单<span class="col1 right_order">已付款</span>
+					</li>
+					<li class="distant">
+						<span>成都众生之星汽车销售有限公司</span>
+						<p>V66T6（10000公里）</p>
+						<p>2015-12-15<span>9:00保养</span></p>
+						<span class="col">￥544</span>
+					</li>
+					<li class="distant">
+						<button class="order_btn2 delete">删除</button>
+						<button class="order_btn3">申请退款</button>
+					</li>
+				</ul>
+			</section>
+			<!--待评价-->
+			<section class="display" style="display: none;">
+				<ul>
+					<li>
+						保养订单<span class="col1 right_order">待评价</span>
+					</li>
+					<li class="distant">
+						<span>成都众生之星汽车销售有限公司</span>
+						<p>V66T6（10000公里）</p>
+						<p>2015-12-15<span>9:00保养</span></p>
+						<span class="col">￥544</span>
+					</li>
+					<li class="distant">
+						<button class="order_btn1">立即付款</button>
+						<button class="order_btn2 delete">删除</button>
+					</li>
+				</ul>
+			</section>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+	<script>
+		$(function(){
+			$('.order .ordero').click(function(){
+				if($(this).hasClass('.activeo')){
+					$(this).removeClass('activeo');
+					$(this).eq(0).addClass('activeo');
+					$('.display').eq($(this).index()).hide();
+					
+				}else{
+					$(this).addClass('activeo');
+					$(this).siblings().removeClass('activeo');
+					$('.display').hide().eq($(this).index()).show();
+				}
+				
+			});
+			$('.delete').click(function(){
+				$(this).parent().parent().remove();
+			});
+		});
+	</script>
+</html>

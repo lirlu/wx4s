@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>引导</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="../css/mui.min.css">
+	</head>
+
+	<body>
+		<div id="slider" class="mui-slider mui-fullscreen" style="background-color: black;">
+			<div class="mui-slider-group">
+				<!-- 第一张 -->
+				<div class="mui-slider-item" style="background: url(../img/one.png) no-repeat center top; background-size: 100% auto;">
+				</div>
+				<!-- 第二张 -->
+				<div class="mui-slider-item" style="background: url(../img/one.png) no-repeat center top; background-size: 100% auto;">
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item" style="background: url(../img/one.png) no-repeat center top; background-size: 100% auto;" id='close'>
+				</div>
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+			</div>
+		</div>
+		<script src="../js/mui.min.js"></script>
+		<script>
+			mui.back = function() {};
+			mui.plusReady(function() {
+				if (mui.os.ios) {
+					plus.navigator.setFullscreen(true);
+				}
+				plus.navigator.closeSplashscreen();
+			});
+			 //立即体验按钮点击事件
+			document.getElementById("close").addEventListener('tap', function(event) {
+				plus.storage.setItem("lauchFlag", "true");
+				plus.navigator.setFullscreen(false);
+				plus.webview.currentWebview().close();
+			}, false);
+		</script>
+	</body>
+
+</html>

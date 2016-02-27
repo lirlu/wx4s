@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>填写订单</title>
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/succeed.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">填写订单</h1>
+		</header>
+		<div class="content">
+			<ul class="liebiao">
+				<li>
+					<div class="dehi">
+						成都中升之星汽车销售服务有限公司
+						<p class="add">成都市武侯大道绕城外侧（双流时代奥特斯南）</p>
+					</div>
+					<div class="dehi1">
+						<span class="blocko">保养项目</span>
+						<p>机油<span class="julit">原厂奔驰专用5W-40SN级全合型</span></p>
+						<p>机油滤清器<span class="julit">原厂件</span></p>
+						<p>4S保养16项免费检测</p>
+					</div>
+					<div class="dehi1"><span>保养日期：</span><span class="timeo">2015-12-15<span>周三</span></span>
+					</div>
+				</li>
+				<li>保养时间：2015012015<span class="julit">09:00</span></li>
+			</ul>
+			<div class="notise">限号提醒：12月15号尾号5合0限号</div>
+			<form>
+				<div class="input-div">
+					<span class="l_f">车牌号码：</span>
+					<span class="r_f"><input type="text" placeholder="请输入完整车牌号码" /></span>
+				</div>
+				<div class="input-div">
+					<span class="l_f">联系人：</span>
+					<span class="r_f"><input type="text" placeholder="请输入姓名" /></span>
+				</div>
+				<div class="input-div">
+					<span class="l_f">性别：</span>
+					<span class="mui-radio mui-left">
+						<input type="radio" name="radio" style="left: 5px;top: -3px;">
+						<span style="padding-left: 30px;line-height: 44px;">先生</span>
+					</span>
+					<span class="mui-radio mui-left">
+						<input type="radio" name="radio" style="left: 5px;top: -3px;">
+						<span style="padding-left: 30px;line-height: 44px;">女士</span>
+					</span>
+				</div>
+				<div class="input-div">
+					<span class="l_f">优惠券：减<span class="col">￥100</span></span><i></i>
+				</div>
+				<div class="input-div">
+					<span class="l_f">指定客户：</span>
+					<span class="fjei">请选择指定客户姓名</span>
+					<i></i>
+				</div>
+			</form>
+			<div class="wei1">
+				<div class="wei">
+					需支付<span class="col">￥724</span>
+				</div>
+				<div class="wei">需支付<span class="col">￥724</span></div>
+				<div class="wei">需支付<span class="col">￥724</span></div>
+			</div>
+			<div class="bottom">
+				<button class="btn">去支付</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/public.js"></script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<script>
+		$(function() {
+			$(window).resize(function() {
+				windowChange();
+			})
+			function windowChange() {
+				var myDataL = $(".input-div").length;
+				var winWidth = $(window).width();
+				var lDiv = "";
+				for (i = 0; i < myDataL; i++) {
+					lDiv = $(".input-div").eq(i).children(".l_f").width() + 15;
+					$(".input-div").eq(i).children(".r_f").width(winWidth - lDiv);
+				}
+			}
+			windowChange();
+			$(".btn").on("tap", function() {
+				publicVar.openwinOne("pay.style.html", "pay.style.html", {}, {});
+			});
+		});
+	</script>
+
+</html>

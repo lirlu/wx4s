@@ -1,0 +1,29 @@
+li{margin-top: 5px;}
+.caet{font-size: 14px;color: #9D9D9D;}
+.distancee{padding-left: 10px;}
+.totle{width: 100%;}
+.firse{width: 60%;float: left;}
+.second{float: left;width: 40%;line-height: 25px;}
+.linger{padding: 10px 0;}
+.hecheng{font-size: 14px;color: #9D9D9D;}
+.change{color: #03A9F4;border: 1px solid #03A9F4;border-radius: 8px;font-size: 12px;width: 50px;display: inline-block;text-align: center;height: 22px;margin-left: 10px;line-height: 22px;}
+.blocko{display: block;}
+.bore{position: absolute;right: 15px;top:50%;margin-top: -12px;border: 1px solid #03A9F4;border-radius: 8px;color: #FFFFFF;background: #03A9F4;width: 60px;padding: 5px 0;display:table-cell;vertical-align: middle;line-height: 14px;;}
+.style{padding-bottom: 10px;}
+.zhu{color: #FD4C3C;font-size: 12px;text-align: center;}
+/*************************************************/
+.online{width: 100%;height: 50px;line-height: 50px;background: #FFFFFF;border-top: 1px solid #EFEFEF;}
+.online .onlineo{width: 33.33333333333%;text-align: center;float: left;position: relative;}
+.store_l{width: 110px;float: left;}
+.store_l img{width: 100px;}
+.store_r{float: left;width: 62%;}
+.dazhe{padding-top: 28px;}
+.addree{margin-top: 0;}
+.addd{margin-top: 5px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.curr{position: absolute;right: 0px;}
+.mui-icon-arrowdown{color: #808080;font-size: 20px;}
+.addree img{width: 26px;float: left;margin-top: -3px;margin-right: 5px;}
+.addreee{text-align: center;margin-top: 0;}
+
+
+

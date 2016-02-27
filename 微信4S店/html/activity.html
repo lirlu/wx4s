@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>热门活动</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/order1.css" />
+	</head>
+
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left" style="position: relative;" id="city">
+				<span style="float: left;">成都</span>
+				<img src="../img/arrowup.png" style="width: 13px;margin-left: 5px;margin-top: 18px;" />
+			</a>
+			<h1 class="title">热门活动</h1>
+			<a class="right">
+				<img src="../img/phone.png" />
+			</a>
+		</header>
+		<div class="content">
+			<div class="image">
+				<img src="../img/activity1.png" />
+				<div class="character">马上开启4S保养，赚奖金不封顶</div>
+			</div>
+			<div class="image">
+				<img src="../img/activity2.png" />
+				<div class="character">你是新注册用户吗？</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+		<script>
+			mui.plusReady(function() {
+				$("#city").on("tap", function() {
+					publicVar.openwinOne("choose.city.html", "choose.city.html", {}, {})
+				});
+				$(".right").on("tap", function() {
+					publicVar.openwinOne("service.html", "service.html", {}, {});
+				});
+			});
+		</script>
+	</body>
+
+</html>

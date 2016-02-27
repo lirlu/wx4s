@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>申请退款</title>
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/app/voucher.css" />
+		<style>
+			.block {
+				margin-top: 0;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="mengban"></div>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">申请退款</h1>
+		</header>
+		<div class="content">
+			<ul class="liebiao">
+				<li>
+					<span class="col3">申请服务</span>
+					<span class="distance">退款</span>
+				</li>
+			</ul>
+			<div class="select">
+				<div class="sel-div" style="z-index: 4;">
+					<span class="sel-span">
+						<span class="col3">退款原因</span>
+					<span class="distance">请选择退款原因</span>
+					<b></b>
+					</span>
+				</div>
+				<!--下拉框-->
+				<ul class="hide liebiao" style="display: none;z-index: 3;position: absolute;width: 100%;">
+					<li class="block">服务不到位</li>
+					<li class="block">服务不到位</li>
+					<li class="block">服务不到位</li>
+					<li class="block">服务不到位</li>
+					<li class="block">服务不到位</li>
+					<li class="block">服务不到位</li>
+				</ul>
+			</div>
+			<div class="arrange">
+				退款原因
+			</div>
+			<div class="mui-input-row">
+				<textarea placeholder="请输入退款说明，最多200字" rows="5"></textarea>
+			</div>
+			<div class="bottom">
+				<button class="btn">提交申请</button>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/public.js"></script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<script>
+		$(function() {
+			$(".select .sel-div").click(function() {
+				if ($(this).children().children('b').hasClass("arrow")) {
+					$(this).children().children('b').removeClass("arrow");
+					$(".hide").slideUp();
+					$('.mengban').css('display', 'none');
+				} else {
+					$(this).children().children('b').addClass("arrow");
+					$(".hide").slideDown();
+					$('.mengban').css('display', 'block');
+					$(".block").click(function() {
+						var abc = $(this).text();
+						var efg = $(this).parent().siblings(".sel-div").children().children(".distance").text(abc);
+						$(".hide").slideUp();
+						$('.mengban').css('display', 'none');
+						$(this).parent().siblings().children().children('b').removeClass('arrow');
+					});
+				}
+			});
+		});
+	</script>
+
+</html>

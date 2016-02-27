@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>选年款配置</title>
+		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/home/choose.brand.css" />
+	</head>
+	<body>
+		<!--头部-->
+		<header class="bar">
+			<a class="left mui-action-back">
+				<img src="../img/left-jiantou.png" />
+			</a>
+			<h1 class="title">选年款配置</h1>
+		</header>
+		<div class="content">
+			<div class="select">			
+				<div class="sel-div">			
+					<span class="sel-span">
+						<span>
+							2015款
+						<span>B</span>
+						<span>200</span>
+						<span>豪华型</span>
+						</span>
+						<b></b>
+					</span>
+				</div>
+				<ul class="hide" style="display: none;">
+					<li class="block">
+						2015款1
+						<span>B</span>
+						<span>200</span>
+						<span>豪华型</span>
+					</li>
+					<li class="block">
+						2015款
+						<span>B</span>
+						<span>200</span>
+						<span>豪华型</span>
+					</li>
+					<li class="block">
+						2015款
+						<span>B</span>
+						<span>200</span>
+						<span>豪华型</span>
+					</li>
+					<li class="block">
+						2015款
+						<span>B</span>
+						<span>200</span>
+						<span>豪华型</span>
+					</li>
+					<li class="block">
+						2015款
+						<span>B</span>
+						<span>200</span>
+						<span>豪华型</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../js/mui.min.js"></script>
+		<script type="text/javascript" src="../js/jquery.min.js"></script>
+		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/config.js"></script>
+	<script>
+		$(function(){				
+			$(".select .sel-div").click(function(){
+				if($(this).children().children('b').hasClass("arrow")){
+					$(this).children().children('b').removeClass("arrow");
+					$(".hide").slideUp();
+				}else{
+					$(this).children().children('b').addClass("arrow");
+					$(".hide").slideDown();
+					$(".block").click(function(){
+					var abc = $(this).text();
+					var efg = $(this).parent().siblings(".sel-div").children().children(".sel-span span").text(abc);//请选择
+						$(".hide").slideUp();
+						$(this).parent().siblings().children().children('b').removeClass('arrow');
+					});
+				}
+			});				
+		});
+	</script>		
+</html>
+
