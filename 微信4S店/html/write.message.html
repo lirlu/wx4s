@@ -8,12 +8,22 @@
 		<link rel="stylesheet" href="../css/common.css" />
 		<link rel="stylesheet" href="../css/app/voucher.css" />
 		<style>
-			.mileage {
+			input.mileage {
 				width: 100px !important;
 				height: 20px !important;
 				line-height: 20px !important;
-				padding-right: 5px;
 				text-align: right;
+				padding: 0;
+				padding-right: 8px;
+				border: none;
+				font-size: 14px;
+				padding-right: 8px;
+			}
+			.jdei {
+				padding-right: 40px;
+			}
+			.jdei i {
+				margin-right: 15px;
 			}
 		</style>
 	</head>
@@ -41,17 +51,25 @@
 					</div>
 				</li>
 				<li>
+					<label>
 					<span class="left_l"><img src="../img/licheng.png" style="width: 19px;margin-right: 10px;"></span>
 					<span>行驶里程</span>
 					<span class="right_l">
-						<input type="text" placeholder="公里数" class="mileage"/>
+						<input type="number" placeholder="公里数" class="mileage"/>
 						公里
 					</span>
+					</label>
 				</li>
 				<li>
+					<label class="date">
 					<span class="left_l"><img src="../img/zhon.png" style="width: 19px;margin-right: 10px;"></span>
 					<span>购车时间</span>
-					<span class="right_l jdei">2015-03<i class="cur jei"></i></span>
+					<span class="right_l jdei">
+						<input type="text" placeholder="日期" class="mileage buyday" readonly=""/>
+						<i class="cur jei"></i>
+						<input type="hidden" class="hide-date"/>
+					</span>
+					</label>
 				</li>
 			</ul>
 			<div class="bottom">
@@ -62,12 +80,25 @@
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/public.js"></script>
 		<script type="text/javascript" src="../js/config.js"></script>
+		<script type="text/javascript" src="../js/moment.js"></script>
 		<script>
 			mui.plusReady(function() {
 				$(".btn").on("tap", function() {
 					publicVar.openwinOne("scheme.html", "scheme.html", {}, {});
 				});
+				$('label.date').on('tap', function () {
+					plus.nativeUI.pickDate(function(e) {
+						$('input.buyday').val(moment(e.date).format('YYYY-MM-DD'));
+						$('.hide-date').val(moment(e.date).format('YYYY-MM-DD'));
+					}, function(e) {
+					}, {
+						title: "请选择日期",
+						date: moment($('.hide-date').val()),
+						maxDate: new Date()
+					});
+				});
 			});
+			
 		</script>
 	</body>
 
