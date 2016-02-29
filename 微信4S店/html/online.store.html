@@ -47,83 +47,57 @@
 			</div>
 			<!--推荐排序-->
 			<ul class="display1">
-				<li>
-					<div class="store_l"><img src="../img/store.png"></div>
-					<div class="store_r">
-						成都申蓉枫4S店
-						<div class="col dazhe">3.4折起</div>
-					</div>
-				</li>
-				<li class="addree col3">
-					<span class="blocko">服务厂商：荣威</span>
-					<span class="blocko addd">11.80公里<span class="distancee">四川省成都市武侯四川省成都市武侯四川省成都市武侯</span></span>
-				</li>
-				<li>
-					<div class="store_l"><img src="../img/store.png"></div>
-					<div class="store_r">
-						成都申蓉枫4S店
-						<div class="col dazhe">3.4折起</div>
-					</div>
-				</li>
-				<li class="addree col3">
-					<span class="blocko">服务厂商：荣威</span>
-					<span class="blocko addd">11.80公里<span class="distancee">四川省成都市武侯四川省成都市武侯四川省成都市武侯</span></span>
-				</li>
+				<li>正在努力的加载。。。</li>
 			</ul>
 			<!--品牌-->
-			<ul class="display" style="display: none;">
-				<li class="addree col4">
-					品牌不限
-				</li>
-				<div class="arrange">A</div>
-				<li>奥迪</li>
-				<div class="arrange">B</div>
-				<li class="addree"><img src="../img/baojun.png" />宝骏</li>
-				<li class="addree"><img src="../img/bieke.png" />别克</li>
-				<li class="addree"><img src="../img/benchi.png" />奔驰</li>
-				<li class="addree"><img src="../img/baoma.png" />宝马</li>
-				<li class="addree"><img src="../img/bentian.png" />本田</li>
+			<ul class="display brand" style="display: none;">
+				<li class="addree active">品牌不限</li>
 			</ul>
 			<!--区域-->
-			<ul class="display" style="display: none;">
-				<li class="addreee col4">不限</li>
-				<li class="addreee">海淀区</li>
-				<li class="addreee">石景山区</li>
-				<li class="addreee">顺义区</li>
-				<li class="addreee">顺义区</li>
-				<li class="addreee">顺义区</li>
+			<ul class="display area" style="display: none;">
+				<li class="addreee active">不限</li>
 			</ul>
 			<!--推荐排序-->
-			<ul class="display" style="display: none;">
-				<li>
-					<div class="store_l"><img src="../img/store.png"></div>
-					<div class="store_r">
-						成都申蓉枫4S店
-						<div class="col dazhe">3.4折起</div>
-					</div>
-				</li>
-				<li class="addree col3">
-					<span class="blocko">服务厂商：荣威</span>
-					<span class="blocko addd">11.80公里<span class="distancee">四川省成都市武侯四川省成都市武侯四川省成都市武侯</span></span>
-				</li>
-				<li>
-					<div class="store_l"><img src="../img/store.png"></div>
-					<div class="store_r">
-						成都申蓉枫4S店
-						<div class="col dazhe">3.4折起</div>
-					</div>
-				</li>
-				<li class="addree col3">
-					<span class="blocko">服务厂商：荣威</span>
-					<span class="blocko addd">11.80公里<span class="distancee">四川省成都市武侯四川省成都市武侯四川省成都市武侯</span></span>
-				</li>
+			<ul class="display auto" style="display: none;">
+				<li>推荐排序。。。</li>
 			</ul>
 		</div>
 	</body>
+	<!-- 品牌模板 开始 -->
+	<script type="text/template" id="tpl-brand">
+		<li class="addree active">品牌不限</li>
+		{{each data as item index}}
+		<li class="addree" data-uid="{{item.name}}"><img src="{{item.image}}" />{{item.name}}</li>
+		{{/each}}
+	</script>
+	<!-- 品牌模板 结束 -->
+	<!-- 区域模板 开始 -->
+	<script type="text/template" id="tpl-area">
+		<li class="addreee active">不限</li>
+		{{each data as item index}}
+		<li class="addreee" data-uid="{{item.name}}">{{item.name}}</li>
+		{{/each}}
+	</script>
+	<!-- 区域模板 结束 -->
+	<!-- 网点模板 开始 -->
+	<script type="text/template" id="tpl-store">
+		{{each data as item index}}
+		<li>
+			<div class="store_l"><img src="{{item.image}}"></div>
+			<div class="store_r">
+				{{item.name}}
+				<div class="col dazhe">{{item.price}}</div>
+			</div>
+		</li>
+		{{/each}}
+	</script>
+	<!-- 网点模板 结束 -->
 	<script type="text/javascript" src="../js/mui.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/template.js"></script>
 	<script type="text/javascript" src="../js/public.js"></script>
 	<script type="text/javascript" src="../js/config.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
 	<script>
 		$(".online").delegate('.onlineo', 'tap', function() {
 			if ($(this).hasClass("no")) {
@@ -137,24 +111,32 @@
 			}
 		});
 		/** 点击不同的条件查询服务网点 */
-		$('li.con').delegate('a', 'tap', function () {
+		$('.display').delegate('.addree, .addreee', 'tap', function () {
+			$(this).addClass('active').siblings().removeClass('active');
+			search({
+				'brand' : $('.display>.addree.active').attr('data-uid'),
+				'area'  : $('.display>.addreee.active').attr('data-uid'),
+			});
 		});
 		function search (data) {
+			/*
 			$.ajax({
 				'url'  : app.u(''),
 				'type' : 'post',
 			})
 			.fail(function (res) { app.error('数据加载失败，请确认网络后重试'); })
 			.done(function (res) {
-				
+				app.tpl($('ul.display1'), 'tpl-store', {'data':[{'name':'宝骏', 'image':'../img/baojun.png'}, {'name':'宝马', 'image':'../img/baoma.png'}]});
 			})
 			;
+			*/
+			$('.display').hide();
+			$('.display1').show();
 		};
 		mui.init();
-		mui.plusReady(function(){
-			$(".display1").on("tap",function(){
-				publicVar.openwinOne("shop.message.html","shop.message.html",{},{});
-			});
+		mui.plusReady(function(){			
+			app.tpl($('.area.display'), 'tpl-area', {'data':[{'name':'锦江区'}, {'name':'青牛区'}]});
+			app.tpl($('.brand.display'), 'tpl-brand', {'data':[{'name':'宝骏', 'image':'../img/baojun.png'}, {'name':'宝马', 'image':'../img/baoma.png'}]});
 		});
 	</script>
 
