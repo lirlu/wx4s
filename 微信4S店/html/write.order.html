@@ -8,6 +8,17 @@
 		<link rel="stylesheet" href="../css/mui.min.css" />
 		<link rel="stylesheet" href="../css/common.css" />
 		<link rel="stylesheet" href="../css/app/succeed.css" />
+		<style>
+			.input-div.sex .mui-radio {
+				margin-top: 3px;
+			}
+			.input-div.sex .mui-radio label {
+				padding-left: 45px;
+			}
+			.input-div.sex .mui-radio input {
+				margin-top: 3px;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -50,18 +61,16 @@
 					<span class="r_f"><input type="text" placeholder="请输入姓名" /></span>
 					</label>
 				</div>
-				<div class="input-div">
-					<label>
+				<div class="input-div sex">
 					<span class="l_f">性　别：</span>
-					<span class="mui-radio mui-left">
-						<input type="radio" name="radio"　checked="checked" style="left: 5px;top: -3px;">
-						<span style="padding-left: 30px;line-height: 44px;">先生</span>
-					</span>
-					<span class="mui-radio mui-left">
-						<input type="radio" name="radio" style="left: 5px;top: -3px;">
-						<span style="padding-left: 30px;line-height: 44px;">女士</span>
-					</span>
-					</label>
+					<div class="mui-input-row mui-radio mui-left mui-inline">
+						<input type="radio" name="sex" value="male" checked="checked">
+						<label>男士</label>
+					</div>
+					<div class="mui-input-row mui-radio mui-left mui-inline">
+						<input type="radio" name="sex" value="female">
+						<label>女士</label>
+					</div>
 				</div>
 				<div class="input-div">
 					<span class="l_f">优惠券：减<span class="col">￥100</span></span><i></i>
