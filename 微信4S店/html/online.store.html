@@ -125,19 +125,32 @@
 	<script type="text/javascript" src="../js/public.js"></script>
 	<script type="text/javascript" src="../js/config.js"></script>
 	<script>
-		$(function() {
-			$(".online .onlineo").click(function() {
-				if ($(this).hasClass("no")) {
-					$(this).removeClass("no");
-					$(".display").eq($(this).index()).hide();
-					$('.display1').show();
-				} else {
-					$(this).addClass("no").siblings().removeClass("no");
-					$(".display").hide().eq($(this).index()).show();
-					$('.display1').hide();
-				}
-			});
+		$(".online").delegate('.onlineo', 'tap', function() {
+			if ($(this).hasClass("no")) {
+				$(this).removeClass("no");
+				$(".display").eq($(this).index()).hide();
+				$('.display1').show();
+			} else {
+				$(this).addClass("no").siblings().removeClass("no");
+				$(".display").hide().eq($(this).index()).show();
+				$('.display1').hide();
+			}
 		});
+		/** 点击不同的条件查询服务网点 */
+		$('li.con').delegate('a', 'tap', function () {
+		});
+		function search (data) {
+			$.ajax({
+				'url'  : app.u(''),
+				'type' : 'post',
+			})
+			.fail(function (res) { app.error('数据加载失败，请确认网络后重试'); })
+			.done(function (res) {
+				
+			})
+			;
+		};
+		mui.init();
 		mui.plusReady(function(){
 			$(".display1").on("tap",function(){
 				publicVar.openwinOne("shop.message.html","shop.message.html",{},{});
