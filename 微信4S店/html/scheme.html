@@ -73,31 +73,33 @@
 	<script type="text/javascript" src="../js/public.js"></script>
 	<script type="text/javascript" src="../js/config.js"></script>
 	<script>
-		$(function() {
-			$(".select .sel-div").click(function() {
-				if ($(this).children().children('b').hasClass("arrow")) {
-					$(this).children().children('b').removeClass("arrow");
+		$(".select .sel-div").on('tap', function() {
+			if ($(this).children().children('b').hasClass("arrow")) {
+				$(this).children().children('b').removeClass("arrow");
+				$(".hide").slideUp();
+				$('.mengban').css('display', 'none');
+			} else {
+				$(this).children().children('b').addClass("arrow");
+				$(".hide").slideDown();
+				$('.mengban').css('display', 'block');
+				$(".block").click(function() {
+					var abc = $(this).text();
+					var efg =  $(this).parent().siblings(".sel-div").children().children(".sel-span span").text(abc);
 					$(".hide").slideUp();
 					$('.mengban').css('display', 'none');
-				} else {
-					$(this).children().children('b').addClass("arrow");
-					$(".hide").slideDown();
-					$('.mengban').css('display', 'block');
-					$(".block").click(function() {
-						var abc = $(this).text();
-						var efg =  $(this).parent().siblings(".sel-div").children().children(".sel-span span").text(abc);
-						$(".hide").slideUp();
-						$('.mengban').css('display', 'none');
-						$(this).parent().siblings().children().children('b').removeClass('arrow');
-					});
-				}
-			});
-			$("#by").on("tap",function(){
-				publicVar.openwinOne("handbook.html", "handbook.html", {}, {});
-			});
-			$(".btn").on("tap",function(){
-				publicVar.openwinOne("choose.shop.html", "choose.shop.html", {}, {});
-			});
+					$(this).parent().siblings().children().children('b').removeClass('arrow');
+				});
+			}
+		});
+		$("#by").on("tap",function(){
+			publicVar.openwinOne("handbook.html", "handbook.html", {}, {});
+		});
+		$(".btn").on("tap",function(){
+			publicVar.openwinOne("choose.shop.html", "choose.shop.html", {}, {});
+		});
+		mui.plusReady(function() {
+			var view = plus.webview.currentWebview();
+			console.log(view.mileage);
 		});
 	</script>
 
