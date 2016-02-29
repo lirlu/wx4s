@@ -7,6 +7,15 @@
 		<title>填写爱车信息</title>
 		<link rel="stylesheet" href="../css/common.css" />
 		<link rel="stylesheet" href="../css/app/voucher.css" />
+		<style>
+			.mileage {
+				width: 100px !important;
+				height: 20px !important;
+				line-height: 20px !important;
+				padding-right: 5px;
+				text-align: right;
+			}
+		</style>
 	</head>
 
 	<body>
@@ -34,7 +43,10 @@
 				<li>
 					<span class="left_l"><img src="../img/licheng.png" style="width: 19px;margin-right: 10px;"></span>
 					<span>行驶里程</span>
-					<span class="right_l"><input type="text" placeholder="请输入公里数" style="width: 100px;height: 19px;"/>公里</span>
+					<span class="right_l">
+						<input type="text" placeholder="公里数" class="mileage"/>
+						公里
+					</span>
 				</li>
 				<li>
 					<span class="left_l"><img src="../img/zhon.png" style="width: 19px;margin-right: 10px;"></span>

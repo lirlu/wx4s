@@ -1,5 +1,5 @@
 body {font-family: 'Helvetica Neue', Helvetica, sans-serif;font-size: 16px;line-height: 21px;color: #000;background-color: #F7F7F8;margin: 0;padding: 0;}
-* {-webkit-box-sizing: border-box;box-sizing: border-box;-webkit-user-select: none;outline: 0;-webkit-tap-highlight-color: transparent;-webkit-tap-highlight-color: transparent;}
+* {-webkit-box-sizing: border-box;box-sizing: border-box;outline: 0;-webkit-tap-highlight-color: transparent;-webkit-tap-highlight-color: transparent;}
 /**头部******************************************/
 .bar{position: fixed;z-index: 10;right: 0;left: 0; height: 44px;padding-right: 10px;padding-left: 10px;border-bottom: 0;-webkit-backface-visibility: hidden;backface-visibility: hidden;top: 0;display: block;background: #FFFFFF;}
 .title{right: 40px;left: 40px;display: inline-block;overflow: hidden;width: auto;margin: 0;text-overflow: ellipsis;font-size: 17px;font-weight: 500;line-height: 44px;position: absolute;padding: 0;text-align: center; white-space: nowrap;}
@@ -45,8 +45,6 @@ li:after{height: 1px;background: #efefef;position: absolute;right: 0;bottom: 0;c
 form{position: relative;border: 0;padding: 0;margin: 0;}
 .input-div{position: relative;clear: left;height: 40px;overflow: hidden;margin: 0;padding: 0;background: #FFFFFF;margin-top: 5px;}
 input[type=text],input[type=tel],input[type=password]{width: 100%;height: 44px;-webkit-appearance: none;margin-bottom: 0;border: 0;border-radius: 0;background-color: transparent;outline:none;font-size: 16px;padding-left: 0;}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */color: #CCCCCC;  }
-::-moz-placeholder { /* Mozilla Firefox 19+ */color: #CCCCCC;}
 input:-ms-input-placeholder,textarea:-ms-input-placeholder {color: #CCCCCC;}
 input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {color: #CCCCCC;}
 .mui-radio input[type=radio]:before {font-size: 23px;}
@@ -55,7 +53,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {color: #CC
 .bottom .btn{border: 1px solid #03A9F4;height: 44px;line-height: 0;background: #03A9F4;color: #FFFFFF;width: 90%;border-radius: 5px;font-size: 16px;}
 .mengban{position: absolute;width: 100%;height: 100%;z-index: 2;display: none;background: #000000;filter:alpha(opacity=50); /*IE滤镜，透明度50%*/-moz-opacity:0.5; /*Firefox私有，透明度50%*/opacity:0.5;/*其他，透明度50%*/}
 
-.bdr {border: 1px solid #000000;}
+.bdr {border: 1px solid #000 !important;}
 
 
 
