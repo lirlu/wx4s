@@ -53,6 +53,7 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {color: #CC
 .bottom .btn{border: 1px solid #03A9F4;height: 44px;line-height: 0;background: #03A9F4;color: #FFFFFF;width: 90%;border-radius: 5px;font-size: 16px;}
 .mengban{position: absolute;width: 100%;height: 100%;z-index: 2;display: none;background: #000000;filter:alpha(opacity=50); /*IE滤镜，透明度50%*/-moz-opacity:0.5; /*Firefox私有，透明度50%*/opacity:0.5;/*其他，透明度50%*/}
 
+.mui-action-back {padding-left: 10px; padding-right: 10px; padding-bottom: 8px;}
 .bdr {border: 1px solid #000 !important;}
 
 

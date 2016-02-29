@@ -39,31 +39,39 @@
 			<div class="notise">限号提醒：12月15号尾号5合0限号</div>
 			<form>
 				<div class="input-div">
-					<span class="l_f">车牌号码：</span>
+					<label>
+					<span class="l_f">车牌号：</span>
 					<span class="r_f"><input type="text" placeholder="请输入完整车牌号码" /></span>
+					</label>
 				</div>
 				<div class="input-div">
+					<label>
 					<span class="l_f">联系人：</span>
 					<span class="r_f"><input type="text" placeholder="请输入姓名" /></span>
+					</label>
 				</div>
 				<div class="input-div">
-					<span class="l_f">性别：</span>
+					<label>
+					<span class="l_f">性　别：</span>
 					<span class="mui-radio mui-left">
-						<input type="radio" name="radio" style="left: 5px;top: -3px;">
+						<input type="radio" name="radio"　checked="checked" style="left: 5px;top: -3px;">
 						<span style="padding-left: 30px;line-height: 44px;">先生</span>
 					</span>
 					<span class="mui-radio mui-left">
 						<input type="radio" name="radio" style="left: 5px;top: -3px;">
 						<span style="padding-left: 30px;line-height: 44px;">女士</span>
 					</span>
+					</label>
 				</div>
 				<div class="input-div">
 					<span class="l_f">优惠券：减<span class="col">￥100</span></span><i></i>
 				</div>
 				<div class="input-div">
+					<label>
 					<span class="l_f">指定客户：</span>
 					<span class="fjei">请选择指定客户姓名</span>
 					<i></i>
+					</label>
 				</div>
 			</form>
 			<div class="wei1">
@@ -83,23 +91,24 @@
 	<script type="text/javascript" src="../js/public.js"></script>
 	<script type="text/javascript" src="../js/config.js"></script>
 	<script>
-		$(function() {
-			$(window).resize(function() {
-				windowChange();
-			})
-			function windowChange() {
-				var myDataL = $(".input-div").length;
-				var winWidth = $(window).width();
-				var lDiv = "";
-				for (i = 0; i < myDataL; i++) {
-					lDiv = $(".input-div").eq(i).children(".l_f").width() + 15;
-					$(".input-div").eq(i).children(".r_f").width(winWidth - lDiv);
-				}
-			}
+		$(window).resize(function() {
 			windowChange();
-			$(".btn").on("tap", function() {
-				publicVar.openwinOne("pay.style.html", "pay.style.html", {}, {});
-			});
+		})
+		function windowChange() {
+			var myDataL = $(".input-div").length;
+			var winWidth = $(window).width();
+			var lDiv = "";
+			for (i = 0; i < myDataL; i++) {
+				lDiv = $(".input-div").eq(i).children(".l_f").width() + 15;
+				$(".input-div").eq(i).children(".r_f").width(winWidth - lDiv);
+			}
+		}
+		windowChange();
+		$(".btn").on("tap", function() {
+			publicVar.openwinOne("pay.style.html", "pay.style.html", {}, {});
+		});
+		mui.plusReady(function() {
+			var view = plus.webview.currentWebview();
 		});
 	</script>
 
