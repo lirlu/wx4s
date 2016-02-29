@@ -73,7 +73,7 @@
 				</li>
 			</ul>
 			<div class="bottom">
-				<button class="btn">去看保养方案</button>
+				<button class="btn view-plan">去看保养方案</button>
 			</div>
 		</div>
 		<script type="text/javascript" src="../js/mui.min.js"></script>
@@ -83,22 +83,26 @@
 		<script type="text/javascript" src="../js/moment.js"></script>
 		<script>
 			mui.plusReady(function() {
-				$(".btn").on("tap", function() {
-					publicVar.openwinOne("scheme.html", "scheme.html", {}, {});
-				});
-				$('label.date').on('tap', function () {
-					plus.nativeUI.pickDate(function(e) {
-						$('input.buyday').val(moment(e.date).format('YYYY-MM-DD'));
-						$('.hide-date').val(moment(e.date).format('YYYY-MM-DD'));
-					}, function(e) {
-					}, {
-						title: "请选择日期",
-						date: moment($('.hide-date').val()),
-						maxDate: new Date()
-					});
+			});
+			/** 选择购车时间 */
+			$('label.date').on('tap', function () {
+				plus.nativeUI.pickDate(function(e) {
+					$('input.buyday').val(moment(e.date).format('YYYY-MM-DD'));
+					$('.hide-date').val(moment(e.date).format('YYYY-MM-DD'));
+				}, function(e) {
+				}, {
+					title: "请选择日期",
+					date: moment($('.hide-date').val()),
+					maxDate: new Date()
 				});
 			});
-			
+			/** 去看保养方案 */
+			$('.btn.view-plan').on('tap', function () {
+				publicVar.openwinOne("scheme.html", "scheme.html", {}, {
+					'mileage' : $('.mileage').val();
+					'date'    : $('.hide-date').val();
+				});
+			});
 		</script>
 	</body>
 
