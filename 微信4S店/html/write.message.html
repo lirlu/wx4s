@@ -106,7 +106,7 @@
 			});
 			/** 选择购车时间 */
 			$('label.date').on('tap', function () {
-				var picker = new mui.DtPicker({"type":"month"});
+				var picker = new mui.DtPicker({"type":"month", 'beginYear':new Date().getFullYear()-20});
 				picker.show(function(res) {
 					/*
 					 * res.value 拼合后的 value
@@ -132,15 +132,6 @@
 					picker.dispose();
 				});
 			});
-			/*
-			$('input.mileage').on('blur', function (e) {
-				var dom = this;
-				setTimeout(function () {
-					$(dom).val($(dom).val().replace(/[^\d]/g, ''));
-				}, 1000);
-				//onkeyup="value=value.replace(/[^\d]/g,'')" onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\d]/g,''))
-			});
-			*/
 			/** 去看保养方案 */
 			$('button.view-plan').on('tap', function () {
 				publicVar.openwinOne("scheme.html", "scheme.html", {}, {
