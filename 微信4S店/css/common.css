@@ -53,8 +53,28 @@ input::-webkit-input-placeholder,textarea::-webkit-input-placeholder {color: #CC
 .bottom .btn{border: 1px solid #03A9F4;height: 44px;line-height: 0;background: #03A9F4;color: #FFFFFF;width: 90%;border-radius: 5px;font-size: 16px;}
 .mengban{position: absolute;width: 100%;height: 100%;z-index: 2;display: none;background: #000000;filter:alpha(opacity=50); /*IE滤镜，透明度50%*/-moz-opacity:0.5; /*Firefox私有，透明度50%*/opacity:0.5;/*其他，透明度50%*/}
 
+
 .mui-action-back {padding-left: 10px; padding-right: 10px; padding-bottom: 8px;}
-.bdr {border: 1px solid #000 !important;}
+.bdr { border: 1px solid #CCCCCC; }
+.no-bdr { border: none; }
+.no-bdr-h { border-left: none; border-right: none; }
+.no-bdr-v { border-top: none; border-right: none; }
+.rds { border-radius: 5px; }
+.no-rds { border-radius: 0; }
+.mgn { margin: 5px; }
+.no-mgn { margin: 0 !important; }
+.no-mgn-h { margin-left: 0 !important; margin-right: 0 !important; }
+.no-mgn-v { margin-top: 0 !important; margin-bottom: 0 !important; }
+.pad { padding: 5px; }
+.pad-h { padding-left: 10px !important; padding-right: 10px !important; }
+.pad-v { padding-top: 10px !important; padding-bottom: 10px !important; }
+.no-pad { padding: 0 !important; }
+.no-pad-h { padding-left: 0; padding-right: 0 !important; }
+.no-pad-v { padding-top: 0; padding-bottom: 0 !important; }
+.img-responsive { display: block; max-width: 100%; height: auto; }
+.panel {
+	
+}
 
 
 

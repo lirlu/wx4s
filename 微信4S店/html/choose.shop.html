@@ -1,88 +1,156 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<title>4S店选择</title>
+	<link rel="stylesheet" href="../css/mui.min.css" />
+	<link rel="stylesheet" href="../css/iconfont.css" />
+	<link rel="stylesheet" href="../css/public.css" />
+	<style>
+		body { margin: 0; padding: 0;}
+		.choose {
+			color: #666;
+			border-top: 1px solid #CCC;
+		}
+		.choose .mui-col-xs-6:last-child {
+			border-left: 1px solid #CCC;
+		}
+		.choose .active {
+			color: #03A9F4;
+		}
+		.choose .mui-col-xs-6 {
+			font-size: 1.2em;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			background-color: #FFF;
+		}
+		.shop-item {
+			padding: 10px;
+			background-color: #fff;
+			margin: 5px !important;
+			border: 1px solid #F7F7F7;
+			border-radius: 5px;
+		}
+		.shop-item img {
+			width: 70px;
+			height: 70px;
+		}
+		.shop-item .desc {
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+		.shop-item .desc .name {
+			color: #000;
+		}
+		.shop-item .desc address {
+			color: #CCC;
+			margin-top: -5px;
+			font-size: 0.75em;
+			text-overflow : ellipsis; 
+			white-space : nowrap; 
+			overflow : hidden; 
+		}
+		.shop-item .desc>i {
+			position: absolute;
+			top: 20px;
+			right: 15px;
+			color: #ccc;
+		}
+		.shop-item .reserve {
+			padding: 1px 8px;
+			height: 25px;
+		}
+		.shop-item .times {
+			margin-top: 15px;
+			color: #777;
+		}
+		.shop-item .times .price {
+			color: #FD4C3C;
+		}
+		.reserve { background-color: #03A9F4; border-color: #03A9F4; }
+	</style>
+</head>
 
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<title>4S店选择</title>
-		<link rel="stylesheet" href="../css/mui.min.css" />
-		<link rel="stylesheet" href="../css/common.css" />
-		<link rel="stylesheet" href="../css/app/choose.css" />
-	</head>
-
-	<body>
-		<!--头部-->
-		<header class="bar">
-			<a class="left mui-action-back">
-				<img src="../img/left-jiantou.png" />
-			</a>
-			<h1 class="title">4S店选择</h1>
-		</header>
-		<div class="content">
-			<div class="choose">
-				<div class="choose1">
-					<img src="../img/quyu.png" style="width: 30px;margin-top: 9px;float: left;" /> 区域
-					<span class="deie"></span>
-				</div>
-				<div class="choose1">
-					<img src="../img/shizhong.png" style="width: 30px;margin-top: 9px;float: left;" /> 时段
-				</div>
+<body>
+	<!--头部-->
+	<header class="bar">
+		<a class="left mui-action-back">
+			<img src="../img/left-jiantou.png" />
+		</a>
+		<h1 class="title">4S店选择</h1>
+	</header>
+	<div class="content">
+		<div class="mui-row choose">
+			<div class="mui-col-xs-6 active">
+				<i class="icon iconfont icon-location"></i>区域
 			</div>
-			<!--店-->
-			<div class="shop">
-				<div class="shop_l">
-					<img src="../img/gonsi.png" />
-				</div>
-				<div class="shop_r">
-					成都中升之星汽车销售服务有限公司
-					<p class="shop_p">成都市武侯区大道绕城外侧（双流）</p>
-					<p>15.05公里</p>
-					<i></i>
-				</div>
+			<div class="mui-col-xs-6">
+				<i class="icon iconfont icon-clock"></i> 时段
 			</div>
-			<!--列表-->
-			<ul>
-				<li>
-					<div class="time_l">09:00-11:00</div>
-					<div class="col time_l">￥644</div>
-					<div class="time_r">
-						<button class="reserve">预定</button>
+		</div>
+		
+		<div class="shop-list"></div>
+		<script type="text/template" id="tpl-shop">
+			{{if data.length < 1}}
+			<div class="no-data">
+				<p>抱歉,暂无最新揭晓商品记录！</p>
+			</div>
+			{{else}} {{each data as item index}}
+			<div class="shop-item">
+				<!--店-->
+				<a class="mui-row shop-link">
+					<div class="mui-col-xs-3">
+						<img src="{{item.image}}" class="img-responsive"/>
 					</div>
-				</li>
-				<li>
-					<div class="time_l">09:00-11:00</div>
-					<div class="col time_l">￥644</div>
-					<div class="time_r">
-						<button class="reserve">预定</button>
+					<div class="mui-col-xs-9 desc">
+						<p class="name">{{item.name}}</p>
+						<address>{{item.address}}</address>
+						<p class="distance">{{item.distance}}</p>
+						<i class="icon iconfont icon-arrow-right"></i>
 					</div>
-				</li>
-				<li>
-					<div class="time_l">09:00-11:00</div>
-					<div class="col time_l">￥644</div>
-					<div class="time_r">
+				</a>
+				<!--列表-->
+				{{each item.times as time}}
+				<div class="mui-row times">
+					<div class="mui-col-xs-5">{{time.desc}}</div>
+					<div class="mui-col-xs-4 mui-text-center price">{{time.price}}</div>
+					<div class="mui-col-xs-3 mui-text-right">
 						<button type="button" class="reserve mui-btn mui-btn-primary">预定</button>
 					</div>
-				</li>
-				<li>
-					<div class="time_l">09:00-11:00</div>
-					<div class="col time_l">￥644</div>
-					<div class="time_r">
-						<button class="reserve">预定</button>
-					</div>
-				</li>
-			</ul>
-		</div>
-		<script type="text/javascript" src="../js/mui.min.js"></script>
-		<script type="text/javascript" src="../js/jquery.min.js"></script>
-		<script type="text/javascript" src="../js/public.js"></script>
-		<script type="text/javascript" src="../js/config.js"></script>
-		<script>
-			$(function() {
-				$(".reserve").on("tap", function() {
-					publicVar.openwinOne("write.order.html", "write.order.html", {}, {});
-				});
-			});
+				</div>
+				{{/each}}
+			</div>
+			{{/each}} {{/if}}
 		</script>
-	</body>
-
+	</div>
+	<script type="text/javascript" src="../js/mui.min.js"></script>
+	<script type="text/javascript" src="../js/jquery.min.js"></script>
+	<script type="text/javascript" src="../js/public.js"></script>
+	<script type="text/javascript" src="../js/template.js"></script>
+	<script type="text/javascript" src="../js/app.js"></script>
+	<script type="text/javascript" src="../js/config.js"></script>
+	<script>
+		$('.shop-list').delegate('.shop-link', 'tap', function () {
+			publicVar.openwinOne("shop.message.html", "shop.message.html", {}, {});
+		});
+		$('.shop-list').delegate('.reserve', 'tap', function () {
+			publicVar.openwinOne("write.order.html", "write.order.html", {}, {});
+		});
+		app.tpl($('.shop-list'), 'tpl-shop', {
+			'data':
+				[
+					{
+						'image':'../img/gonsi.png',
+						'name' :'成都中升之星汽车销售服务有限公司',
+						'address':'成都市武侯区大道绕城外侧（双流）',
+						'distance':'15.05公里',
+						'times':[{'desc':'09:15-08:08','price':'$999'},{'desc':'09:15-08:08','price':'$999'}]
+					}
+				]
+			}
+		);
+	</script>
+</body>
 </html>
