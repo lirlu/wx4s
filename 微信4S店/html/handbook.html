@@ -43,6 +43,7 @@
 			}
 			.mui-scroll .moveable dd {
 				width: 80px;
+				color: #FFFFFF;
 			}
 			.mui-scroll>.locked {
 				border: 1px solid #CCC;
@@ -60,7 +61,16 @@
 				border-radius: 50%;
 				z-index: -1;
 				margin-left: -7px;
+				background-color: #FFF;
+			}
+			dd i.a {
 				background-color: #10D10D;
+			}
+			dd i.b {
+				background-color: #FD8400;
+			}
+			dd i.c {
+				background-color: #FD4C3C;
 			}
 		</style>
 	</head>
@@ -104,8 +114,9 @@
 		<script type="text/template" id="tpl-body">
 			{{each data as item}}
 			<dl>
-				<dd><i></i>优</dd>
-				<dd><i></i>换</dd>
+				<dd><i class="a"></i>优</dd>
+				<dd><i class="b"></i>良</dd>
+				<dd><i class="c"></i>换</dd>
 			</dl>
 			{{/each}}
 		</script>
