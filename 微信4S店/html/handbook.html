@@ -21,12 +21,17 @@
 			}
 			.mui-scroll>.moveable dl {
 				border-left: 1px solid #CCC;
+				border-right: 1px solid #CCC;
 			}
 			.mui-scroll dd {
 				height: 20px;
 				display: inline;
 				margin: 0 !important;
 				padding: 3px 5px;
+				
+				white-space:nowrap;
+				overflow:hidden;
+				text-overflow: ellipsis;
 			}
 			.mui-scroll>.locked {
 				border: 1px solid #CCC;
@@ -122,6 +127,7 @@
 				{name:'保养手册'},
 			];
 			var dom = $(app.tpl('tpl-body', {'data':list}));
+			$(dom).width(80 * 5.2);
 			$('.mui-scroll>.mui-col-xs-9').empty().append(dom);
 			
 			var dom = $(app.tpl('tpl-head', {'data':list}));
