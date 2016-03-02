@@ -17,22 +17,19 @@
 			.mui-scroll dl {
 				width: auto;
 				white-space: nowrap;
-				padding-top: 10px;
-				padding-bottom: 10px;
 				margin: 0;
-				border-bottom: 1px solid #CCC;
+				border-bottom: 1px solid #F5F5F5;
 			}
 			.mui-scroll>.moveable dl {
-				border-left: 1px solid #CCC;
-				border-right: 1px solid #CCC;
+				border-left: 1px solid #F5F5F5;
+				border-right: 1px solid #F5F5F5;
 			}
 			.mui-scroll dd {
-				height: 30px;
-				line-height: 30px;
+				height: 50px;
+				line-height: 50px;
 				text-align: center;
 				display: inline-block;
 				margin: 0;
-				padding: 0 3px;
 				
 				white-space:nowrap;
 				overflow:hidden;
@@ -43,13 +40,18 @@
 			}
 			.mui-scroll .moveable dd {
 				width: 80px;
+				border-right: 1px solid #F5F5F5;
 				color: #FFFFFF;
 			}
+			.mui-scroll .moveable dl:first-child dd {
+				color: #000;
+				font-size: 0.75em;
+			}
 			.mui-scroll>.locked {
-				border: 1px solid #CCC;
+				border: 1px solid #F5F5F5;
 			}
 			.mui-scroll>.moveable {
-				border: 1px solid #CCC;
+				border: 1px solid #F5F5F5;
 
 				overflow: scroll;
 				min-height: 200px;
@@ -60,6 +62,7 @@
 				height: 30px;
 				border-radius: 50%;
 				z-index: -1;
+				margin-top: 10px;
 				margin-left: -7px;
 				background-color: #FFF;
 			}
@@ -101,15 +104,24 @@
 				</div>
 			</div>
 		</div>
-		<!--保养手册头部 开始-->
-		<script type="text/template" id="tpl-head">
+		<!--保养手册列头部 开始-->
+		<script type="text/template" id="tpl-col">
 			{{each data as item}}
 			<dl>
 				<dd>{{item.name}}</dd>
 			</dl>
 			{{/each}}
 		</script>
-		<!--保养手册头部 结束-->
+		<!--保养手册列头部 结束-->
+		<!--保养手册内容 开始-->
+		<script type="text/template" id="tpl-row">
+			<dl>
+				<dd>150000KM</dd>
+				<dd>200000KM</dd>
+				<dd>300000KM</dd>
+			</dl>
+		</script>
+		<!--保养手册内容 结束-->
 		<!--保养手册内容 开始-->
 		<script type="text/template" id="tpl-body">
 			{{each data as item}}
@@ -153,12 +165,19 @@
 				{name:'保养手册'},
 				{name:'保养手册'},
 			];
+			$('.mui-scroll>.mui-col-xs-3, .mui-scroll>.mui-col-xs-9').empty();
+			
+			var dom = $(app.tpl('tpl-col', {'data':list}));
+			$('.mui-scroll>.mui-col-xs-3').append(dom);
+			
+			var dom = $(app.tpl('tpl-row', {'data':list}));
+			$(dom).width(80 * 5.2);
+			$('.mui-scroll>.mui-col-xs-9').append(dom);
+			
 			var dom = $(app.tpl('tpl-body', {'data':list}));
 			$(dom).width(80 * 5.2);
-			$('.mui-scroll>.mui-col-xs-9').empty().append(dom);
+			$('.mui-scroll>.mui-col-xs-9').append(dom);
 			
-			var dom = $(app.tpl('tpl-head', {'data':list}));
-			$('.mui-scroll>.mui-col-xs-3').empty().append(dom);
 		</script>
 	</body>
 </html>
