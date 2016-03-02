@@ -70,6 +70,29 @@
 			color: #FD4C3C;
 		}
 		.reserve { background-color: #03A9F4; border-color: #03A9F4; }
+		
+		
+		.mui-row.mui-fullscreen {
+			position: absolute;
+			z-index: 999;
+			display: none;
+			top: 90px;
+		}
+		.mui-row.mui-fullscreen>[class*="mui-col-"] {
+			height: 100%;
+		}
+		.mui-col-xs-3,
+		.mui-control-content {
+			overflow-y: auto;
+			height: 100%;
+		}
+		.mui-segmented-control .mui-control-item {
+			line-height: 50px;
+			width: 100%;
+		}
+		.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
+			background-color: #fff;
+		}
 	</style>
 </head>
 
@@ -83,11 +106,19 @@
 	</header>
 	<div class="content">
 		<div class="mui-row choose">
-			<div class="mui-col-xs-6 active">
+			<div class="mui-col-xs-6 area-tab active">
 				<i class="icon iconfont icon-location"></i>区域
 			</div>
-			<div class="mui-col-xs-6">
+			<div class="mui-col-xs-6 time-tab">
 				<i class="icon iconfont icon-clock"></i> 时段
+			</div>
+		</div>
+		<div class="mui-content mui-row mui-fullscreen area-panel">
+			<div class="mui-col-xs-3">
+				<div id="area-control" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+				</div>
+			</div>
+			<div id="area-content" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
 			</div>
 		</div>
 		
@@ -124,6 +155,26 @@
 			</div>
 			{{/each}} {{/if}}
 		</script>
+		<!-- 城市选择列表 开始 -->
+		<script type="text/template" id="tpl-city">
+			{{each data as item}}
+			<a class="mui-control-item" href="#content{{item.code}}">{{item.name}}</a>
+			{{/each}}
+		</script>
+		<!-- 城市选择列表 结束 -->
+		<!-- 区域选择列表 开始 -->
+		<script type="text/template" id="tpl-area">
+			{{each data as item}}
+			<div id="content{{item.code}}" class="mui-control-content">
+				<ul class="mui-table-view">
+					{{each item.area as area}}
+					<li class="mui-table-view-cell">{{area.name}}</li>
+					{{/each}}
+				</ul>
+			</div>
+			{{/each}}
+		</script>
+		<!-- 区域选择列表 结束 -->
 	</div>
 	<script type="text/javascript" src="../js/mui.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
@@ -132,16 +183,51 @@
 	<script type="text/javascript" src="../js/app.js"></script>
 	<script type="text/javascript" src="../js/config.js"></script>
 	<script>
+		mui.init({
+			swipeBack: true //启用右滑关闭功能
+		});
+		// 点击4S店查看4S店详情
 		$('.shop-list').delegate('.shop-link', 'tap', function () {
 			publicVar.openwinOne("shop.message.html", "shop.message.html", {}, {});
 		});
+		// 点击预约
 		$('.shop-list').delegate('.reserve', 'tap', function () {
 			publicVar.openwinOne("write.order.html", "write.order.html", {}, {});
 		});
-		$('.choose>div').on('tap', function () {
-			if (!$(this).hasClass('active')) {
-				$(this).addClass('active').siblings().removeClass('active');
+		// 点击区域
+		$('.area-tab').on('tap', function () {
+			if ($('.area-panel').is(':visible')) { $('.area-panel').hide(); return; }
+			
+			$('.area-panel').show();
+			$(this).addClass('active').siblings().removeClass('active');
+			
+			var city = [];
+			for (var i = 0; i < 20; i++) {
+				city.push({'name':'城市'+i, 'code':i, 'area':[
+					{'name':'城市'+i+'-区域0'},
+					{'name':'城市'+i+'-区域1'},
+					{'name':'城市'+i+'-区域2'},
+				]});
 			}
+			
+			// 城市数据
+			app.tpl($('#area-control'), 'tpl-city', {'data':city});
+			// 城市对应区域数据
+			app.tpl($('#area-content'), 'tpl-area', {'data':city});
+			// 默认选中第一个
+			$('.mui-control-item:first').removeClass('mui-active').addClass('mui-active');
+			$('.mui-control-content:first').removeClass('mui-active').addClass('mui-active');
+		});
+		// 点击具体某一个区域
+		$('.area-panel').delegate('.mui-table-view-cell', 'tap', function () {
+			$('.area-panel').hide();
+			plus.nativeUI.toast('正在努力实现这个功能');
+		});
+		// 点击时段
+		$('.time-tab').on('tap', function () {
+			$('.area-panel').hide();
+			if ($('.time-panel').is(':visible')) { $('.time-panel').hide(); return; }
+			
 		});
 		app.tpl($('.shop-list'), 'tpl-shop', {
 			'data':
