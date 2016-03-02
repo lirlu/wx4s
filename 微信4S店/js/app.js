@@ -47,7 +47,11 @@ app.locate = function (cb) {
  * @return {Object} 数据
  */
 app.tpl = function (dom, tpl, data) {
-	try { $(dom).html(template(tpl, data)); } catch (e) { app.log(e); };
+	if (undefined !== data) {
+		try { $(dom).html(template(tpl, data)); } catch (e) { app.log(e); };	
+	} else if (undefined !== tpl) {
+		return template(dom, tpl);
+	}
 };
 /**
  * 补全URL地址

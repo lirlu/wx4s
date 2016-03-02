@@ -4,8 +4,41 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title>保养手册</title>
-		<link rel="stylesheet" href="../css/common.css" />
+		<link rel="stylesheet" href="../css/public.css" />
 		<link rel="stylesheet" href="../css/app/handbook.css" />
+		<link rel="stylesheet" href="../css/mui.min.css" />
+		<style>
+			.mui-scroll-wrapper {
+				position: inherit;
+			}
+			.mui-scroll dl {
+				width: auto;
+				white-space: nowrap;
+				padding-top: 10px;
+				padding-bottom: 10px;
+				margin: 0;
+				border-bottom: 1px solid #CCC;
+			}
+			.mui-scroll>.moveable dl {
+				border-left: 1px solid #CCC;
+			}
+			.mui-scroll dd {
+				height: 20px;
+				display: inline;
+				margin: 0 !important;
+				padding: 3px 5px;
+			}
+			.mui-scroll>.locked {
+				border: 1px solid #CCC;
+			}
+			.mui-scroll>.moveable {
+				border: 1px solid #CCC;
+				border-left: none;
+
+				overflow: scroll;
+				min-height: 200px;
+			}
+		</style>
 	</head>
 	<body>
 		<!--头部-->
@@ -27,66 +60,73 @@
 				</div>
 			</div>
 			<div class="notidse">随保养赠送16项免费检测</div>
-			<ul>
-				<li class="nick">保养项目<span class="vertick"></span></li>
-				<li class="licheng">10000KM<span class="vertick"></span></li>
-				<li class="licheng">20000KM<span class="vertick"></span></li>
-				<li class="licheng">30000KM<span class="vertick"></span></li>
-				<li class="licheng">40000KM</li>
-				<li class="nick">机油<span class="vertick"></span></li>
-				<li class="licheng">
-					<span class="excellent">优</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="good">良</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="poor">换</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="excellent">优</span>
-				</li>
-				<li class="nick">机油滤清器<span class="vertick"></span></li>
-				<li class="licheng">
-					<span class="poor">换</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="excellent">优</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="poor">换</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="good">良</span>
-				</li>
-				<li class="nick">火花塞<span class="vertick"></span></li>
-				<li class="licheng">
-					<span class="excellent">优</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="good">良</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="poor">换</span>
-					<span class="vertick"></span>
-				</li>
-				<li class="licheng">
-					<span class="excellent">优</span>
-				</li>
-			</ul>
+			<div class="mui-scroll-wrapper" >
+				<div class="mui-scroll mui-content mui-row">
+					<div class="mui-col-xs-3 locked"></div>
+					<div class="mui-col-xs-9 moveable"></div>
+				</div>
+			</div>
 		</div>
+		<!--保养手册头部 开始-->
+		<script type="text/template" id="tpl-head">
+			{{each data as item}}
+			<dl>
+				<dd>{{item.name}}</dd>
+			</dl>
+			{{/each}}
+		</script>
+		<!--保养手册头部 结束-->
+		<!--保养手册内容 开始-->
+		<script type="text/template" id="tpl-body">
+			{{each data as item}}
+			<dl>
+				<dd>{{item.name}}</dd>
+				<dd>{{item.name}}</dd>
+				<dd>{{item.name}}</dd>
+				<dd>{{item.name}}</dd>
+				<dd>{{item.name}}</dd>
+			</dl>
+			{{/each}}
+		</script>
+		<!--保养手册内容 结束-->
 		<script type="text/javascript" src="../js/mui.min.js"></script>
 		<script type="text/javascript" src="../js/jquery.min.js"></script>
 		<script type="text/javascript" src="../js/public.js"></script>
+		<script type="text/javascript" src="../js/template.js"></script>
+		<script type="text/javascript" src="../js/app.js"></script>
 		<script type="text/javascript" src="../js/config.js"></script>
+		<script>
+			mui.init();
+			var list = [
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+				{name:'保养手册'},
+			];
+			var dom = $(app.tpl('tpl-body', {'data':list}));
+			$('.mui-scroll>.mui-col-xs-9').empty().append(dom);
+			
+			var dom = $(app.tpl('tpl-head', {'data':list}));
+			$('.mui-scroll>.mui-col-xs-3').empty().append(dom);
+		</script>
 	</body>
 </html>
 
