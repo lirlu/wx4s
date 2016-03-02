@@ -27,24 +27,40 @@
 				border-right: 1px solid #CCC;
 			}
 			.mui-scroll dd {
-				height: 20px;
-				display: inline;
-				margin: 0 !important;
-				padding: 3px 5px;
+				height: 30px;
+				line-height: 30px;
+				text-align: center;
+				display: inline-block;
+				margin: 0;
+				padding: 0 3px;
 				
 				white-space:nowrap;
 				overflow:hidden;
 				text-overflow: ellipsis;
+			}
+			.mui-scroll .locked dd {
+				width: 80px;
+			}
+			.mui-scroll .moveable dd {
+				width: 80px;
 			}
 			.mui-scroll>.locked {
 				border: 1px solid #CCC;
 			}
 			.mui-scroll>.moveable {
 				border: 1px solid #CCC;
-				border-left: none;
 
 				overflow: scroll;
 				min-height: 200px;
+			}
+			dd i {
+				position: absolute;
+				width: 30px;
+				height: 30px;
+				border-radius: 50%;
+				z-index: -1;
+				margin-left: -7px;
+				background-color: #10D10D;
 			}
 		</style>
 	</head>
@@ -88,11 +104,8 @@
 		<script type="text/template" id="tpl-body">
 			{{each data as item}}
 			<dl>
-				<dd>{{item.name}}</dd>
-				<dd>{{item.name}}</dd>
-				<dd>{{item.name}}</dd>
-				<dd>{{item.name}}</dd>
-				<dd>{{item.name}}</dd>
+				<dd><i></i>优</dd>
+				<dd><i></i>换</dd>
 			</dl>
 			{{/each}}
 		</script>
