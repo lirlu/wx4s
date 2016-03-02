@@ -18,17 +18,12 @@
 				width: auto;
 				white-space: nowrap;
 				margin: 0;
-				border-bottom: 1px solid #F5F5F5;
-			}
-			.mui-scroll>.moveable dl {
-				border-left: 1px solid #F5F5F5;
-				border-right: 1px solid #F5F5F5;
 			}
 			.mui-scroll dd {
 				height: 50px;
 				line-height: 50px;
 				text-align: center;
-				display: inline-block;
+				display: table-cell;
 				margin: 0;
 				
 				white-space:nowrap;
@@ -37,24 +32,28 @@
 			}
 			.mui-scroll .locked dd {
 				width: 80px;
+				border-bottom: 1px solid #F5F5F5;
+				border-right: 1px solid #F5F5F5;
 			}
 			.mui-scroll .moveable dd {
-				width: 80px;
-				border-right: 1px solid #F5F5F5;
 				color: #FFFFFF;
+				border-right: 1px solid #F5F5F5;
+				border-bottom: 1px solid #F5F5F5;
 			}
 			.mui-scroll .moveable dl:first-child dd {
 				color: #000;
 				font-size: 0.75em;
 			}
-			.mui-scroll>.locked {
-				border: 1px solid #F5F5F5;
+			.mui-scroll .moveable dl dd:first-child {
+				border-left: 1px solid #F5F5F5;
 			}
 			.mui-scroll>.moveable {
-				border: 1px solid #F5F5F5;
-
 				overflow: scroll;
 				min-height: 200px;
+			}
+			dd>div {
+				width: 80px;
+				display: block;
 			}
 			dd i {
 				position: absolute;
@@ -108,7 +107,7 @@
 		<script type="text/template" id="tpl-col">
 			{{each data as item}}
 			<dl>
-				<dd>{{item.name}}</dd>
+				<dd><div>{{item.name}}</div></dd>
 			</dl>
 			{{/each}}
 		</script>
@@ -116,9 +115,14 @@
 		<!--保养手册内容 开始-->
 		<script type="text/template" id="tpl-row">
 			<dl>
-				<dd>150000KM</dd>
-				<dd>200000KM</dd>
-				<dd>300000KM</dd>
+				<dd><div>150000KM</div></dd>
+				<dd><div>200000KM</div></dd>
+				<dd><div>300000KM</div></dd>
+				<dd><div>300000KM</div></dd>
+				<dd><div>300000KM</div></dd>
+				<dd><div>300000KM</div></dd>
+				<dd><div>300000KM</div></dd>
+				<dd><div>300000KM</div></dd>
 			</dl>
 		</script>
 		<!--保养手册内容 结束-->
@@ -126,9 +130,14 @@
 		<script type="text/template" id="tpl-body">
 			{{each data as item}}
 			<dl>
-				<dd><i class="a"></i>优</dd>
-				<dd><i class="b"></i>良</dd>
-				<dd><i class="c"></i>换</dd>
+				<dd><div><i class="a"></i>优</div></dd>
+				<dd><div><i class="b"></i>良</div></dd>
+				<dd><div><i class="c"></i>换</div></dd>
+				<dd><div><i class="c"></i>换</div></dd>
+				<dd><div><i class="c"></i>换</div></dd>
+				<dd><div><i class="c"></i>换</div></dd>
+				<dd><div><i class="c"></i>换</div></dd>
+				<dd><div><i class="c"></i>换</div></dd>
 			</dl>
 			{{/each}}
 		</script>
