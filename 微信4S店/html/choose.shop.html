@@ -11,10 +11,10 @@
 		body { margin: 0; padding: 0;}
 		.choose {
 			color: #666;
-			border-top: 1px solid #CCC;
+			border-top: 1px solid #D8D8D8;
 		}
 		.choose .mui-col-xs-6:last-child {
-			border-left: 1px solid #CCC;
+			border-left: 1px solid #D8D8D8;
 		}
 		.choose .active {
 			color: #03A9F4;
@@ -137,6 +137,11 @@
 		});
 		$('.shop-list').delegate('.reserve', 'tap', function () {
 			publicVar.openwinOne("write.order.html", "write.order.html", {}, {});
+		});
+		$('.choose>div').on('tap', function () {
+			if (!$(this).hasClass('active')) {
+				$(this).addClass('active').siblings().removeClass('active');
+			}
 		});
 		app.tpl($('.shop-list'), 'tpl-shop', {
 			'data':
