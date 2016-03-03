@@ -238,7 +238,6 @@
 		// 点击区域
 		$('.area-tab').on('tap', function () {
 			if ($('.area-panel').is(':visible')) { $('.area-panel').hide(); return; }
-			$('.time-tab, .area-tab').toggleClass('active');
 			$('.area-panel').show();
 			
 			var city = [];
@@ -261,13 +260,16 @@
 		// 点击具体某一个区域
 		$('.area-panel').delegate('.mui-table-view-cell', 'tap', function () {
 			$('.area-panel').hide();
+			
+			$('.area-tab').removeClass('active').addClass('active');
+			$('.time-tab').removeClass('active');
+			
 			plus.nativeUI.toast('正在努力实现这个功能');
 		});
 		// 点击时段
 		$('.time-tab').on('tap', function () {
-			$('.area-panel').hide();
 			if ($('.time-panel').is(':visible')) { $('.time-panel').hide(); return; }
-			$('.time-tab, .area-tab').toggleClass('active');
+			$('.area-panel').hide();
 			mask.show();
 			$('.time-panel').show();
 		});
@@ -275,6 +277,10 @@
 		$('.time-panel').delegate('.mui-table-view-cell', 'tap', function () {
 			$('.time-panel').hide();
 			mask.close();
+			
+			$('.time-tab').removeClass('active').addClass('active');
+			$('.area-tab').removeClass('active');
+			
 			plus.nativeUI.toast('时段功能也在努力实现中');
 		});
 		app.tpl($('.shop-list'), 'tpl-shop', {
