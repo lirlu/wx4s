@@ -238,9 +238,8 @@
 		// 点击区域
 		$('.area-tab').on('tap', function () {
 			if ($('.area-panel').is(':visible')) { $('.area-panel').hide(); return; }
-			
+			$('.time-tab, .area-tab').toggleClass('active');
 			$('.area-panel').show();
-			$(this).addClass('active').siblings().removeClass('active');
 			
 			var city = [];
 			for (var i = 0; i < 20; i++) {
@@ -268,6 +267,7 @@
 		$('.time-tab').on('tap', function () {
 			$('.area-panel').hide();
 			if ($('.time-panel').is(':visible')) { $('.time-panel').hide(); return; }
+			$('.time-tab, .area-tab').toggleClass('active');
 			mask.show();
 			$('.time-panel').show();
 		});
