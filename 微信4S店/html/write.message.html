@@ -9,6 +9,7 @@
 		<link rel="stylesheet" href="../css/mui.picker.min.css" />
 		<link rel="stylesheet" href="../css/common.css" />
 		<link rel="stylesheet" href="../css/app/voucher.css" />
+		<link rel="stylesheet" href="../css/iconfont.css" />
 		<style>
 			input.mileage {
 				width: 100px !important;
@@ -48,6 +49,12 @@
 .mui-picker li:after {
 	background: inherit !important;
 }
+.car-row li>i {
+	position: absolute;
+	right: 25px;
+	top: 27px;
+	color: #C0C0C0;
+}
 		</style>
 	</head>
 
@@ -63,8 +70,8 @@
 			<div class="arrange deis">
 				<span><img src="../img/car.png" style="width: 21px;margin-right: 8px;float: left;margin-top: 9px;" /></span> 保养的车辆
 			</div>
-			<ul>
-				<li>
+			<ul class="car-row">
+				<li class="car-brand">
 					<div class="djei"><img src="../img/baoma-big.png" /></div>
 					<div class="djeio">
 						<span>2015款</span>
@@ -72,6 +79,7 @@
 						<span>200</span>
 						<span>豪华型</span>
 					</div>
+					<i class="icon iconfont icon-arrow-right"></i>
 				</li>
 				<li>
 					<label>
@@ -107,6 +115,10 @@
 		<script type="text/javascript" src="../js/mui.picker.min.js"></script>
 		<script>
 			mui.plusReady(function() {
+			});
+			// 选择车型
+			$('.car-row').delegate('.car-brand', 'tap', function () {
+				//publicVar.openwinOne("scheme.html", "scheme.html", {}, {});
 			});
 			/** 选择购车时间 */
 			$('label.date').on('tap', function () {
