@@ -93,6 +93,22 @@
 		.mui-segmented-control.mui-segmented-control-inverted .mui-control-item.mui-active {
 			background-color: #fff;
 		}
+		
+		.mui-backdrop {
+		    top: 45px;
+		}
+		.time-panel {
+			z-index: 999;
+			bottom: 0;
+			left: 0;
+			text-align: center;
+			right: 0;
+			position: fixed;
+			display: none;
+		}
+		.mui-table-view-cell:after {
+			left: 0;
+		}
 	</style>
 </head>
 
@@ -121,6 +137,28 @@
 			<div id="area-content" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
 			</div>
 		</div>
+		<ul class="mui-table-view time-panel">
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<div class="mui-media-body">8:00-11:30</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<div class="mui-media-body">8:00-11:30</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<div class="mui-media-body">8:00-11:30</div>
+				</a>
+			</li>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<div class="mui-media-body">8:00-11:30</div>
+				</a>
+			</li>
+		</ul>
 		
 		<div class="shop-list"></div>
 		<script type="text/template" id="tpl-shop">
@@ -186,6 +224,9 @@
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
 		});
+		var mask = mui.createMask(function () {
+			$('.time-panel').hide();
+		});
 		// 点击4S店查看4S店详情
 		$('.shop-list').delegate('.shop-link', 'tap', function () {
 			publicVar.openwinOne("shop.message.html", "shop.message.html", {}, {});
@@ -227,7 +268,14 @@
 		$('.time-tab').on('tap', function () {
 			$('.area-panel').hide();
 			if ($('.time-panel').is(':visible')) { $('.time-panel').hide(); return; }
-			
+			mask.show();
+			$('.time-panel').show();
+		});
+		// 点击具体的某一个时段
+		$('.time-panel').delegate('.mui-table-view-cell', 'tap', function () {
+			$('.time-panel').hide();
+			mask.close();
+			plus.nativeUI.toast('时段功能也在努力实现中');
 		});
 		app.tpl($('.shop-list'), 'tpl-shop', {
 			'data':
