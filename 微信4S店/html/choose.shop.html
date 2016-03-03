@@ -260,7 +260,7 @@
 		// 点击具体某一个区域
 		$('.area-panel').delegate('.mui-table-view-cell', 'tap', function () {
 			$('.area-panel').hide();
-			
+			// 切换TAB选中效果
 			$('.area-tab').removeClass('active').addClass('active');
 			$('.time-tab').removeClass('active');
 			
@@ -277,7 +277,7 @@
 		$('.time-panel').delegate('.mui-table-view-cell', 'tap', function () {
 			$('.time-panel').hide();
 			mask.close();
-			
+			// 切换TAB选中效果
 			$('.time-tab').removeClass('active').addClass('active');
 			$('.area-tab').removeClass('active');
 			
