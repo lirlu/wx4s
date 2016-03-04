@@ -106,7 +106,9 @@
 			text-align: center;
 			right: 0;
 			position: fixed;
-			display: none;
+			
+		  -webkit-animation-duration: 0.5s;
+		  -vendor-animation-duration: 0.5s;
 		}
 		.mui-table-view-cell:after {
 			left: 0;
@@ -131,8 +133,8 @@
 				<i class="icon iconfont icon-clock"></i> 时段
 			</div>
 		</div>
-		<ul class="mui-table-view area-panel"></ul>
-		<ul class="mui-table-view time-panel"></ul>
+		<ul class="mui-table-view area-panel animated"></ul>
+		<ul class="mui-table-view time-panel animated"></ul>
 		
 		<div class="shop-list"></div>
 		<script type="text/template" id="tpl-shop">
@@ -186,11 +188,26 @@
 	<script type="text/javascript" src="../js/app.js"></script>
 	<script type="text/javascript" src="../js/config.js"></script>
 	<script>
+		$.fn.extend({
+		    animate: function (name, cb) {
+		        var end = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';
+		        $(this).removeClass(name).addClass(name).one(end, function() {
+		            $(this).removeClass(name);
+		            if (cb) cb.call(this);
+		        });
+		        return this;
+		    }
+		});
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
 		});
+		$('.area-panel, .time-panel').hide();
 		var mask = mui.createMask(function () {
-			$('.area-panel, .time-panel').hide();
+			if ($('.area-panel').is(':visible'))
+			$('.area-panel').animate('slideOutDown', function () { $('.area-panel').hide(); });
+			
+			if ($('.time-panel').is(':visible'))
+			$('.time-panel').animate('slideOutDown', function () { $('.time-panel').hide(); });
 		});
 		// 点击4S店查看4S店详情
 		$('.shop-list').delegate('.shop-link', 'tap', function () {
@@ -204,7 +221,8 @@
 		$('.area-tab').on('tap', function () {
 			if ($('.area-panel').is(':visible')) { $('.area-panel').hide(); return; }
 			mask.show();
-			$('.area-panel').show(); $('.time-panel').hide(); 
+			$('.area-panel').show().animate('fadeInUp');
+			$('.time-panel').hide();
 		});
 		// 点击具体某一个区域
 		$('.area-panel').delegate('li.mui-table-view-cell', 'tap', function () {
@@ -220,7 +238,8 @@
 		$('.time-tab').on('tap', function () {
 			if ($('.time-panel').is(':visible')) { $('.time-panel').hide(); return; }
 			mask.show();
-			$('.area-panel').hide(); $('.time-panel').show(); 
+			$('.time-panel').show().animate('fadeInUp');
+			$('.area-panel').hide();
 		});
 		// 点击具体的某一个时段
 		$('.time-panel').delegate('li.mui-table-view-cell', 'tap', function () {
