@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href="../css/mui.min.css" />
 	<link rel="stylesheet" href="../css/iconfont.css" />
 	<link rel="stylesheet" href="../css/public.css" />
+	<link rel="stylesheet" href="../css/animate.css" />
 	<style>
 		body { margin: 0; padding: 0;}
 		.choose {
@@ -97,6 +98,7 @@
 		.mui-backdrop {
 		    top: 45px;
 		}
+		.area-panel,
 		.time-panel {
 			z-index: 999;
 			bottom: 0;
@@ -129,42 +131,14 @@
 				<i class="icon iconfont icon-clock"></i> 时段
 			</div>
 		</div>
-		<div class="mui-content mui-row mui-fullscreen area-panel">
-			<div class="mui-col-xs-3">
-				<div id="area-control" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
-				</div>
-			</div>
-			<div id="area-content" class="mui-col-xs-9" style="border-left: 1px solid #c8c7cc;">
-			</div>
-		</div>
-		<ul class="mui-table-view time-panel">
-			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
-					<div class="mui-media-body">8:00-11:30</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
-					<div class="mui-media-body">8:00-11:30</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
-					<div class="mui-media-body">8:00-11:30</div>
-				</a>
-			</li>
-			<li class="mui-table-view-cell mui-media">
-				<a href="javascript:;">
-					<div class="mui-media-body">8:00-11:30</div>
-				</a>
-			</li>
-		</ul>
+		<ul class="mui-table-view area-panel"></ul>
+		<ul class="mui-table-view time-panel"></ul>
 		
 		<div class="shop-list"></div>
 		<script type="text/template" id="tpl-shop">
 			{{if data.length < 1}}
 			<div class="no-data">
-				<p>抱歉,暂无最新揭晓商品记录！</p>
+				<p>抱歉,没有匹配的数据！</p>
 			</div>
 			{{else}} {{each data as item index}}
 			<div class="shop-item">
@@ -193,23 +167,14 @@
 			</div>
 			{{/each}} {{/if}}
 		</script>
-		<!-- 城市选择列表 开始 -->
-		<script type="text/template" id="tpl-city">
-			{{each data as item}}
-			<a class="mui-control-item" href="#content{{item.code}}">{{item.name}}</a>
-			{{/each}}
-		</script>
-		<!-- 城市选择列表 结束 -->
 		<!-- 区域选择列表 开始 -->
 		<script type="text/template" id="tpl-area">
 			{{each data as item}}
-			<div id="content{{item.code}}" class="mui-control-content">
-				<ul class="mui-table-view">
-					{{each item.area as area}}
-					<li class="mui-table-view-cell">{{area.name}}</li>
-					{{/each}}
-				</ul>
-			</div>
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<div class="mui-media-body">{{item.name}}</div>
+				</a>
+			</li>
 			{{/each}}
 		</script>
 		<!-- 区域选择列表 结束 -->
@@ -225,7 +190,7 @@
 			swipeBack: true //启用右滑关闭功能
 		});
 		var mask = mui.createMask(function () {
-			$('.time-panel').hide();
+			$('.area-panel, .time-panel').hide();
 		});
 		// 点击4S店查看4S店详情
 		$('.shop-list').delegate('.shop-link', 'tap', function () {
@@ -238,28 +203,13 @@
 		// 点击区域
 		$('.area-tab').on('tap', function () {
 			if ($('.area-panel').is(':visible')) { $('.area-panel').hide(); return; }
-			$('.area-panel').show();
-			
-			var city = [];
-			for (var i = 0; i < 20; i++) {
-				city.push({'name':'城市'+i, 'code':i, 'area':[
-					{'name':'城市'+i+'-区域0'},
-					{'name':'城市'+i+'-区域1'},
-					{'name':'城市'+i+'-区域2'},
-				]});
-			}
-			
-			// 城市数据
-			app.tpl($('#area-control'), 'tpl-city', {'data':city});
-			// 城市对应区域数据
-			app.tpl($('#area-content'), 'tpl-area', {'data':city});
-			// 默认选中第一个
-			$('.mui-control-item:first').removeClass('mui-active').addClass('mui-active');
-			$('.mui-control-content:first').removeClass('mui-active').addClass('mui-active');
+			mask.show();
+			$('.area-panel').show(); $('.time-panel').hide(); 
 		});
 		// 点击具体某一个区域
-		$('.area-panel').delegate('.mui-table-view-cell', 'tap', function () {
+		$('.area-panel').delegate('li.mui-table-view-cell', 'tap', function () {
 			$('.area-panel').hide();
+			mask.close();
 			// 切换TAB选中效果
 			$('.area-tab').removeClass('active').addClass('active');
 			$('.time-tab').removeClass('active');
@@ -269,12 +219,11 @@
 		// 点击时段
 		$('.time-tab').on('tap', function () {
 			if ($('.time-panel').is(':visible')) { $('.time-panel').hide(); return; }
-			$('.area-panel').hide();
 			mask.show();
-			$('.time-panel').show();
+			$('.area-panel').hide(); $('.time-panel').show(); 
 		});
 		// 点击具体的某一个时段
-		$('.time-panel').delegate('.mui-table-view-cell', 'tap', function () {
+		$('.time-panel').delegate('li.mui-table-view-cell', 'tap', function () {
 			$('.time-panel').hide();
 			mask.close();
 			// 切换TAB选中效果
@@ -283,6 +232,9 @@
 			
 			plus.nativeUI.toast('时段功能也在努力实现中');
 		});
+		
+		app.tpl($('.area-panel'), 'tpl-area', {'data':[{name:'城市'},{name:'时段'}]});
+		app.tpl($('.time-panel'), 'tpl-area', {'data':[{name:'城市'},{name:'时段'}]});
 		app.tpl($('.shop-list'), 'tpl-shop', {
 			'data':
 				[
@@ -303,6 +255,8 @@
 				]
 			}
 		);
+		mui.plusReady(function () {
+		});
 	</script>
 </body>
 </html>
