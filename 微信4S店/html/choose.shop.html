@@ -226,7 +226,8 @@
 		});
 		// 点击具体某一个区域
 		$('.area-panel').delegate('li.mui-table-view-cell', 'tap', function () {
-			$('.area-panel').hide();
+			//$('.area-panel').hide();
+			$('.area-panel').animate('slideOutDown', function () { $('.area-panel').hide(); });
 			mask.close();
 			// 切换TAB选中效果
 			$('.area-tab').removeClass('active').addClass('active');
@@ -243,7 +244,8 @@
 		});
 		// 点击具体的某一个时段
 		$('.time-panel').delegate('li.mui-table-view-cell', 'tap', function () {
-			$('.time-panel').hide();
+			//$('.time-panel').hide();
+			$('.time-panel').animate('slideOutDown', function () { $('.time-panel').hide(); });
 			mask.close();
 			// 切换TAB选中效果
 			$('.time-tab').removeClass('active').addClass('active');
