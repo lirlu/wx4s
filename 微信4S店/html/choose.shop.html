@@ -11,11 +11,17 @@
 	<style>
 		body { margin: 0; padding: 0;}
 		.choose {
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
 			color: #666;
-			border-top: 1px solid #D8D8D8;
+			background-color: #FFF;
+			z-index: 99;
+			border-top: 1px solid #F9F9F9;
 		}
 		.choose .mui-col-xs-6:last-child {
-			border-left: 1px solid #D8D8D8;
+			border-left: 1px solid #F9F9F9;
 		}
 		.choose .active {
 			color: #03A9F4;
@@ -113,6 +119,57 @@
 		.mui-table-view-cell:after {
 			left: 0;
 		}
+		
+		.date-panel {
+			width: 100%;
+			height: 42px;
+			overflow: hidden;
+			clear: both;
+			/*background-color: #FFFFFF;*/
+			padding-left: 20px;
+			padding-right: 20px;
+			border-top: 1px solid #E5E5E5;
+			border-bottom: 1px solid #E5E5E5;
+		}
+		.date-panel>ul {
+			width: 300px;
+			margin: 0 auto;
+			padding: 0;
+			white-space: nowrap;
+			overflow: hidden;
+		}
+		.date-panel>ul>li {
+			display: none;
+		}
+		.date-panel>ul>li.show {
+			display: table-cell;
+		}
+		.date-panel>ul>li.active>div {
+			background-color: #FFFFFF;
+			border-left: 1px solid #E5E5E5;
+			border-right: 1px solid #E5E5E5;
+		}
+		.date-panel>ul>li>div {
+			width: 100px;
+			text-align: center;
+			height: 40px;
+			padding-left: 0;
+			padding-right: 0;
+			margin-left: 0;
+			margin-right: 0;
+			display: block;
+		}
+		.date-panel>ul>li>div>span {
+			width: 100%;
+			height: 18px;
+			display: block;
+			float: left;
+			color: #FD4C3C;
+		}
+		.date-panel>ul>li>div>span:first-child {
+			font-size: 0.75em;
+			color: #000000;
+		}
 	</style>
 </head>
 
@@ -125,6 +182,7 @@
 		<h1 class="title">4S店选择</h1>
 	</header>
 	<div class="content">
+		<div class="mui-row date-panel"></div>
 		<div class="mui-row choose">
 			<div class="mui-col-xs-6 area-tab active">
 				<i class="icon iconfont icon-location"></i>区域
@@ -180,6 +238,21 @@
 			{{/each}}
 		</script>
 		<!-- 区域选择列表 结束 -->
+		
+		<!-- 日期选择 开始 -->
+		<script type="text/template" id="tpl-date">
+			<ul>
+			{{each data as item index}}
+			<li>
+				<div>
+				<span>06-12:周六</span>
+				<span>$99{{index}}</span>
+				</div>
+			</li>
+			{{/each}}
+			</ul>
+		</script>
+		<!-- 日期选择 结束 -->
 	</div>
 	<script type="text/javascript" src="../js/mui.min.js"></script>
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
@@ -201,6 +274,21 @@
 		mui.init({
 			swipeBack: true //启用右滑关闭功能
 		});
+		
+		// 点击不同的日期
+		$('.date-panel').delegate('ul>li', 'tap', function () {
+			var dom = this;
+			if ($(this).closest('li').hasClass('active')) { return; }
+			$(this).closest('li').addClass('active').siblings().removeClass('active');
+			
+			$(this).addClass('show').siblings().removeClass('show');
+			$(this).prev().addClass('show');
+			$(this).next().addClass('show');
+			if (0 == $(this).index()) {
+				$(this).next().next().addClass('show');
+			}
+		});
+		
 		$('.area-panel, .time-panel').hide();
 		var mask = mui.createMask(function () {
 			if ($('.area-panel').is(':visible'))
@@ -254,6 +342,8 @@
 			plus.nativeUI.toast('时段功能也在努力实现中');
 		});
 		
+		app.tpl($('.date-panel'), 'tpl-date', {'data':[1,1,1,1,1,1,1,1,1,1,1,,1]});
+		$('.date-panel li').eq(2).trigger('tap');
 		app.tpl($('.area-panel'), 'tpl-area', {'data':[{name:'城市'},{name:'时段'}]});
 		app.tpl($('.time-panel'), 'tpl-area', {'data':[{name:'城市'},{name:'时段'}]});
 		app.tpl($('.shop-list'), 'tpl-shop', {
